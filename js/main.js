@@ -106,9 +106,12 @@ const getAllProduct = function () {
                     <div class="home-product-item__img"
                         style="background-image: url(${imgUrl});">
                     </div>
-                    <h4 class="home-product-item__name">
-                        ${productName}, ${productCode}
+                    <a href="productDetail.html?code=${productCode}">
+                    <h4 class="home-product-item__name" >
+                    ${productName}, ${productCode}
                     </h4>
+                    </a>
+                    
                     
             
                     <div class="home-product-item__price">
