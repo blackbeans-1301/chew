@@ -73,8 +73,11 @@ const signIn = function () {
     console.log(userInfo);
     postData(`${apiUrl}/signin`, userInfo)
         .then(data => {
-            console.log("data result:")
+            localStorage.clear();
             console.log(data); // JSON data parsed by `data.json()` call
+            localStorage.setItem("token", data.reason.token);
+            localStorage.setItem("userName", data.reason.userName);
+            location.assign("/");
         });
 
 }
