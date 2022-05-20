@@ -375,8 +375,16 @@
     cursor: pointer;
 }
 
-.header__cart-list--empty-cart .header__cart-list--empty-img,
-.header__cart-list--empty-cart .header__cart-list--empty-text {
+.header__cart-list--has-item  {
+    display: none;
+}
+
+.header__cart-list--empty-wrap {
+    /* display: none; */
+}
+
+.header__cart-list--empty-cart.header__cart-list--empty-img,
+.header__cart-list--empty-cart.header__cart-list--empty-text {
     display: block;
     margin-left: auto;
     margin-right: auto;

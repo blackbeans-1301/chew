@@ -205,13 +205,16 @@ const getProductLine = function (categoryName) {
     }
 };
 
+const getUserCartData = function() {
+    
+}
+
 const lineAllProduct = document.querySelector('.js-category__all-product');
 const lineDogPA = document.querySelector('.js-category__dog-pa');
 const lineCatPA = document.querySelector('.js-category__cat-pa');
 const lineDogKanel = document.querySelector('.js-category__dog-kanel');
 const lineCatKanel = document.querySelector('.js-category__cat-kanel');
 const lineCatMilk = document.querySelector('.js-category__cat-milk');
-
 
 getAllProduct();
 const btnSignin = document.querySelector('.js-signin-btn');

@@ -1,115 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <title>Document</title> -->
-    <link
-      rel="stylesheet"
-      href="assets/font/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/base.css" />
-    <link
-      rel="icon"
-      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7p0tSQ2YiyKL3eQ1qUPf8N1h_E9t-caXFLw&usqp=CAU"
-      type="image/x-icon"
-    />
-    <title>Chewy</title>
-  </head>
 
-  <body>
-    <div class="app">
-      <header class="header">
-        <div class="grid">
-          <nav class="header__navbar">
-            <ul class="header__navbar-list">
-              <li class="header__navbar-item header__navbar-item--separate">
-                Vào cửa hàng trên ứng dụng Chewy
-              </li>
-              <li class="header__navbar-item">
-                <span class="header__navbar-noPointer">Kết nối</span>
-                <a href="" class="header__navbar-icon"
-                  ><i class="fa-brands fa-facebook"></i
-                ></a>
-                <a href="" class="header__navbar-icon"
-                  ><i class="fa-brands fa-instagram-square"></i
-                ></a>
-              </li>
-            </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <title>Document</title> -->
+  <link rel="stylesheet" href="assets/font/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="icon"
+    href="https://img.favpng.com/14/10/23/logo-c-letter-png-favpng-TEHuUHveLi6T5cgGz9R7rwbNA.jpg"
+    type="image/x-icon" />
+  <title>Chewy</title>
+  <script src="./js/cart-handler.js"></script>
+</head>
 
-            <ul class="header__navbar-list" id="extraInfo"></ul>
-          </nav>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="grid">
+        <nav class="header__navbar">
+          <ul class="header__navbar-list">
+            <li class="header__navbar-item header__navbar-item--separate">
+              Vào cửa hàng trên ứng dụng Chewy
+            </li>
+            <li class="header__navbar-item">
+              <span class="header__navbar-noPointer">Kết nối</span>
+              <a href="" class="header__navbar-icon"><i class="fa-brands fa-facebook"></i></a>
+              <a href="" class="header__navbar-icon"><i class="fa-brands fa-instagram-square"></i></a>
+            </li>
+          </ul>
 
-          <div class="header-with-search">
-            <div class="header__logo">
-              <a href="/" class="header__logo-link">
-                <svg
-                  class="header__logo-img"
-                  viewBox="0 0 106 32"
-                  focusable="false"
-                  tabindex="-1"
-                  aria-hidden="true"
-                  height="46"
-                  width="155"
-                >
-                  <path
-                    d="M54.237 15.497c-.653 1.377-.924 2.776-3.217 3.709-2.238.91-4.283-.42-4.961-1.675 0 0 7.41-3.424 9.594-4.742.659-.398 1.165-.856 1.5-1.372.268.681.592 1.486.95 2.356-1.447-.557-3.061.027-3.866 1.724m-7.99-6.587c3.06-1.448 4.765 1.526 4.765 1.526l-6.719 3.178s-1.106-3.257 1.954-4.704m57.306-2.554c-1.925-.648-3.732.431-4.314 2.24l-3.242 10.077-.081-.004c-1.03-4.352-2.437-10.31-2.437-10.31-.438-1.85-2.154-3.074-4.124-2.586a3.449 3.449 0 0 0-1.852 1.148c-.2-1.438-1.283-2.61-2.882-2.816-1.973-.254-3.524 1.141-3.764 3.004l-1.332 10.378-.08.008-2.758-7.643c-1.122-3.109-2.04-4.72-4.828-4.404-2.79.317-3.337 2.094-3.762 5.378l-1.044 8.075-.08.009-3.535-9.826c-.635-1.763-2.449-2.776-4.319-2.087a3.361 3.361 0 0 0-1.78 1.476c-1.396-3.65-6.807-7.16-13.451-3.524-3.462 1.895-5.073 4.507-5.597 7.132-.97-2.256-2.957-3.84-5.605-4.08-3.57-.324-5.576 1.779-5.576 1.779l-.072-.006.52-5.965c.166-1.915-1.089-3.608-3.135-3.793-2.047-.186-3.586 1.28-3.75 3.17l-1.238 14.209c-.615-.662-1.547-1.053-2.635-.776-2.193.536-2.754 3.191-5.084 3.68-2.644.555-4.317-1.548-4.827-4.077-.418-2.077-.06-5.137 2.878-5.587 2.58-.396 3.184 2.346 6.055 1.768 1.7-.343 2.52-1.707 2.123-3.45-.626-2.642-4.737-4.582-9.25-3.636C2.89 6.535-1.035 11.814.242 18.436c1.32 6.844 7.662 9.062 12.679 7.943 3.107-.693 4.978-2.133 6.046-3.612l-.068.773c-.166 1.915 1.089 3.608 3.135 3.793 2.047.186 3.586-1.28 3.75-3.17l.707-8.113c.192-2.269 1.697-3.102 3.008-2.983 1.31.118 2.625 1.375 2.45 3.478l-.706 8.113c-.167 1.916 1.089 3.608 3.135 3.794 2.046.185 3.585-1.28 3.75-3.17l.624-7.17c.14.412.294.803.461 1.17C42.27 26 48.53 26.429 53.41 24.12c2.837-1.342 4.507-2.97 5.497-4.466.443-.67.73-1.294.894-1.868.368.843.738 1.672 1.095 2.445 2.353 5.09 3.173 6.345 6.925 6.018 3.73-.522 4.093-2.08 5.091-10.777l.04-.004.04-.005c2.847 8.261 3.537 9.7 7.288 9.373 3.73-.522 4.26-1.93 5.46-7.423a172.47 172.47 0 0 0 1.306-6.764l.83 2.736c2.006 6.58 4.087 10.944 2.833 11.58-1.115.564-1.76-1.418-3.907-1.283-1.477.093-2.783 1.67-2.307 3.617.657 2.689 4.787 5.545 9.532 4.114 4.78-1.442 6.176-5.383 11.685-20.628.633-1.818-.233-3.78-2.158-4.429"
-                  ></path>
-                </svg>
-              </a>
-            </div>
+          <ul class="header__navbar-list" id="extraInfo"></ul>
+        </nav>
 
-            <!-- search field -->
-            <div class="header__search">
-              <input
-                type="text"
-                class="header__search-input"
-                placeholder="Search"
-              />
+        <div class="header-with-search">
+          <div class="header__logo">
+            <a href="/" class="header__logo-link">
+              <svg class="header__logo-img" viewBox="0 0 106 32" focusable="false" tabindex="-1" aria-hidden="true"
+                height="46" width="155">
+                <path
+                  d="M54.237 15.497c-.653 1.377-.924 2.776-3.217 3.709-2.238.91-4.283-.42-4.961-1.675 0 0 7.41-3.424 9.594-4.742.659-.398 1.165-.856 1.5-1.372.268.681.592 1.486.95 2.356-1.447-.557-3.061.027-3.866 1.724m-7.99-6.587c3.06-1.448 4.765 1.526 4.765 1.526l-6.719 3.178s-1.106-3.257 1.954-4.704m57.306-2.554c-1.925-.648-3.732.431-4.314 2.24l-3.242 10.077-.081-.004c-1.03-4.352-2.437-10.31-2.437-10.31-.438-1.85-2.154-3.074-4.124-2.586a3.449 3.449 0 0 0-1.852 1.148c-.2-1.438-1.283-2.61-2.882-2.816-1.973-.254-3.524 1.141-3.764 3.004l-1.332 10.378-.08.008-2.758-7.643c-1.122-3.109-2.04-4.72-4.828-4.404-2.79.317-3.337 2.094-3.762 5.378l-1.044 8.075-.08.009-3.535-9.826c-.635-1.763-2.449-2.776-4.319-2.087a3.361 3.361 0 0 0-1.78 1.476c-1.396-3.65-6.807-7.16-13.451-3.524-3.462 1.895-5.073 4.507-5.597 7.132-.97-2.256-2.957-3.84-5.605-4.08-3.57-.324-5.576 1.779-5.576 1.779l-.072-.006.52-5.965c.166-1.915-1.089-3.608-3.135-3.793-2.047-.186-3.586 1.28-3.75 3.17l-1.238 14.209c-.615-.662-1.547-1.053-2.635-.776-2.193.536-2.754 3.191-5.084 3.68-2.644.555-4.317-1.548-4.827-4.077-.418-2.077-.06-5.137 2.878-5.587 2.58-.396 3.184 2.346 6.055 1.768 1.7-.343 2.52-1.707 2.123-3.45-.626-2.642-4.737-4.582-9.25-3.636C2.89 6.535-1.035 11.814.242 18.436c1.32 6.844 7.662 9.062 12.679 7.943 3.107-.693 4.978-2.133 6.046-3.612l-.068.773c-.166 1.915 1.089 3.608 3.135 3.793 2.047.186 3.586-1.28 3.75-3.17l.707-8.113c.192-2.269 1.697-3.102 3.008-2.983 1.31.118 2.625 1.375 2.45 3.478l-.706 8.113c-.167 1.916 1.089 3.608 3.135 3.794 2.046.185 3.585-1.28 3.75-3.17l.624-7.17c.14.412.294.803.461 1.17C42.27 26 48.53 26.429 53.41 24.12c2.837-1.342 4.507-2.97 5.497-4.466.443-.67.73-1.294.894-1.868.368.843.738 1.672 1.095 2.445 2.353 5.09 3.173 6.345 6.925 6.018 3.73-.522 4.093-2.08 5.091-10.777l.04-.004.04-.005c2.847 8.261 3.537 9.7 7.288 9.373 3.73-.522 4.26-1.93 5.46-7.423a172.47 172.47 0 0 0 1.306-6.764l.83 2.736c2.006 6.58 4.087 10.944 2.833 11.58-1.115.564-1.76-1.418-3.907-1.283-1.477.093-2.783 1.67-2.307 3.617.657 2.689 4.787 5.545 9.532 4.114 4.78-1.442 6.176-5.383 11.685-20.628.633-1.818-.233-3.78-2.158-4.429">
+                </path>
+              </svg>
+            </a>
+          </div>
 
-              <button class="header__search-btn">
-                <i
-                  class="header__search-btn-icon fa-solid fa-magnifying-glass"
-                ></i>
-              </button>
-            </div>
+          <!-- search field -->
+          <div class="header__search">
+            <input type="text" class="header__search-input" placeholder="Search" />
 
-            <div class="header__cart">
-              <div class="header__cart-wrap">
-                <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+            <button class="header__search-btn">
+              <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
 
-                <span class="header__cart-notice">3</span>
+          <div class="header__cart">
+            <div class="header__cart-wrap">
+              <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
 
-                <!-- No cart: header__cart-list--empty-cart -->
-                <div class="header__cart-list">
-                  <img
-                    src="https://cdni.iconscout.com/illustration/free/thumb/empty-cart-4085814-3385483.png"
-                    alt=""
-                    class="header__cart-list--empty-img"
-                  />
+              <span class="header__cart-notice">3</span>
+
+              <!-- No cart: header__cart-list--empty-cart -->
+              <div class="header__cart-list">
+
+                <div class="header__cart-list--empty-wrap">
+                  <img src="https://cdni.iconscout.com/illustration/free/thumb/empty-cart-4085814-3385483.png" alt=""
+                    class="header__cart-list--empty-img" />
                   <p class="header__cart-list--empty-text">Cart is empty..!</p>
+                </div>
 
-                  <!-- Has item in cart -->
+                <!-- Has item in cart -->
+                <div class="header__cart-list--has-item">
+
                   <h4 class="header__cart-heading">Product added</h4>
                   <ul class="header__cart-list-item">
                     <li class="header__cart-item">
-                      <img
-                        src="https://img.chewy.com/is/image/catalog/46861_MAIN._AC_SS208_V1636150597_.jpg"
-                        alt=""
-                        class="header__cart-img"
-                      />
+                      <img src="https://img.chewy.com/is/image/catalog/46861_MAIN._AC_SS208_V1636150597_.jpg" alt=""
+                        class="header__cart-img" />
                       <div class="header__cart-item-info">
                         <div class="header__cart-item-head">
                           <h5 class="header__cart-item-name">
@@ -120,107 +94,93 @@
                           <span class="header__cart-item-price">52.99</span>
                         </div>
                         <div class="header__cart-item-body">
-                          <button
-                            class="header__cart-item-remove-item js-remove-item"
-                          >
+                          <button class="header__cart-item-remove-item js-remove-item">
                             Remove
                           </button>
                         </div>
                       </div>
                     </li>
                   </ul>
-
-                  <button class="header__cart-check-cart btn btn--primary">
+                  <button class="header__cart-check-cart btn btn--primary js-order-btn">
                     Đặt hàng
                   </button>
+
                 </div>
+
               </div>
             </div>
           </div>
         </div>
-      </header>
+      </div>
+    </header>
 
-      <!-- container -->
-      <div class="container">
-        <div class="grid app-content">
-          <div class="grid__row">
-            <!-- -------- Category: BEGIN -------- -->
-            <div class="grid__col-2">
-              <nav class="category">
-                <h3 class="category__heading">
-                  <i class="category__heading-icon fa-solid fa-list"></i>
-                  Danh mục
-                </h3>
+    <!-- container -->
+    <div class="container">
+      <div class="grid app-content">
+        <div class="grid__row">
+          <!-- -------- Category: BEGIN -------- -->
+          <div class="grid__col-2">
+            <nav class="category">
+              <h3 class="category__heading">
+                <i class="category__heading-icon fa-solid fa-list"></i>
+                Danh mục
+              </h3>
 
-                <ul class="category-list">
-                  <li
-                    class="category-item js-category__all-product category-item--active"
-                  >
-                    <span href="" class="category-item__link"
-                      >Tất cả sản phẩm</span
-                    >
+              <ul class="category-list">
+                <li class="category-item js-category__all-product category-item--active">
+                  <span href="" class="category-item__link">Tất cả sản phẩm</span>
+                </li>
+
+                <li class="category-item js-category__dog-pa">
+                  <span href="" class="category-item__link">Pate cho chó</span>
+                </li>
+
+                <li class="category-item js-category__cat-pa">
+                  <span href="" class="category-item__link">Pate cho mèo</span>
+                </li>
+
+                <li class="category-item js-category__dog-kanel">
+                  <span href="" class="category-item__link">Chuồng cho chó</span>
+                </li>
+
+                <li class="category-item js-category__cat-kanel">
+                  <span href="" class="category-item__link">Chuồng cho mèo</span>
+                </li>
+
+                <li class="category-item js-category__cat-milk">
+                  <span href="" class="category-item__link">Sữa cho mèo</span>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- -------- Category: END -------- -->
+
+          <!-- --------Product: BEGIN -------- -->
+          <div class="grid__col-10">
+            <div class="home-filter">
+              <span class="home-filter__label">Sắp xếp theo</span>
+              <button class="btn btn--primary">Phổ biến</button>
+              <button class="btn">Mới nhất</button>
+              <button class="btn">Bán chạy</button>
+
+              <div class="select-input">
+                <span class="select-input__label">Giá</span>
+                <i class="select-input__label-arrow_down fa-solid fa-angle-down"></i>
+
+                <ul class="select-input__choice-list">
+                  <li class="select-input__choice-item">
+                    Giá: Từ thấp tới cao
                   </li>
-
-                  <li class="category-item js-category__dog-pa">
-                    <span href="" class="category-item__link"
-                      >Pate cho chó</span
-                    >
-                  </li>
-
-                  <li class="category-item js-category__cat-pa">
-                    <span href="" class="category-item__link"
-                      >Pate cho mèo</span
-                    >
-                  </li>
-
-                  <li class="category-item js-category__dog-kanel">
-                    <span href="" class="category-item__link"
-                      >Chuồng cho chó</span
-                    >
-                  </li>
-
-                  <li class="category-item js-category__cat-kanel">
-                    <span href="" class="category-item__link"
-                      >Chuồng cho mèo</span
-                    >
-                  </li>
-
-                  <li class="category-item js-category__cat-milk">
-                    <span href="" class="category-item__link">Sữa cho mèo</span>
+                  <li class="select-input__choice-item">
+                    Giá: Từ cao tới thấp
                   </li>
                 </ul>
-              </nav>
-            </div>
-            <!-- -------- Category: END -------- -->
-
-            <!-- --------Product: BEGIN -------- -->
-            <div class="grid__col-10">
-              <div class="home-filter">
-                <span class="home-filter__label">Sắp xếp theo</span>
-                <button class="btn btn--primary">Phổ biến</button>
-                <button class="btn">Mới nhất</button>
-                <button class="btn">Bán chạy</button>
-
-                <div class="select-input">
-                  <span class="select-input__label">Giá</span>
-                  <i
-                    class="select-input__label-arrow_down fa-solid fa-angle-down"
-                  ></i>
-
-                  <ul class="select-input__choice-list">
-                    <li class="select-input__choice-item">
-                      Giá: Từ thấp tới cao
-                    </li>
-                    <li class="select-input__choice-item">
-                      Giá: Từ cao tới thấp
-                    </li>
-                  </ul>
-                </div>
               </div>
+            </div>
 
-              <div class="home-product">
-                <div class="grid__row" id="product-list">
-                  <!-- 
+            <div class="home-product">
+              <div class="grid__row" id="product-list">
+                <!-- 
                                 <div class="grid__col-2-4">
                                     <div class="home-product-item">
                                         <div class="home-product-item__img"
@@ -246,172 +206,133 @@
                                     </div>
 
                                 </div> -->
-                </div>
               </div>
             </div>
-            <!-- --------Product: BEGIN -------- -->
           </div>
-          <!-- -------------- Container: END -------------- -->
+          <!-- --------Product: BEGIN -------- -->
         </div>
-      </div>
-
-      <!-- footer of the web -->
-      <div class="footer">
-        <div class="grid">
-          <div class="grid__row">
-            <div class="grid__col-2-4"></div>
-
-            <div class="grid__col-2-4"></div>
-            <div class="grid__col-2-4"></div>
-            <div class="grid__col-2-4"></div>
-            <div class="grid__col-2-4"></div>
-          </div>
-        </div>
+        <!-- -------------- Container: END -------------- -->
       </div>
     </div>
 
-    <!-- Modal part -->
-    <div class="modal js-modal">
-      <div class="modal__overlay"></div>
+    <!-- footer of the web -->
+    <div class="footer">
+      <div class="grid">
+        <div class="grid__row">
+          <div class="grid__col-2-4"></div>
 
-      <div class="modal__body js-modal__body">
-        <div class="auth-form auth-form-sign-up js-auth-form-su">
-          <div class="auth-form__container">
-            <div class="auth-form__header">
-              <h3 class="auth-form__heading">Đăng ký</h3>
-              <span class="auth-form__btn">Đăng nhập</span>
-            </div>
-
-            <div class="auth-form__form">
-              <div class="auth-form__form-group">
-                <input
-                  type="text"
-                  id="this-userName"
-                  class="auth-form__input js-auth-form-username"
-                  placeholder="Ten dang nhap"
-                />
-                <input
-                  type="text"
-                  id="this-password"
-                  class="auth-form__input js-auth-form-password"
-                  placeholder="Mat khau"
-                />
-                <input
-                  type="text"
-                  id="this-passwordRp"
-                  class="auth-form__input js-auth-form-password-repeat"
-                  placeholder="Nhap lai mat khau"
-                />
-                <input
-                  type="text"
-                  id="this-fullName"
-                  class="auth-form__input js-auth-form-fullname"
-                  placeholder="Ho va ten"
-                />
-                <input
-                  type="text"
-                  id="this-phone"
-                  class="auth-form__input js-auth-form-contact"
-                  placeholder="So dien thoai"
-                />
-              </div>
-            </div>
-
-            <div class="auth-form__term-and-service">
-              <p class="auth-form__TaS-text">
-                Bằng việc đăng ký, bạn đã đồng ý với Chewy về
-                <a href="#" class="auth-form__text-link text-link"
-                  >Điều khoản và dịch vụ</a
-                >
-                &
-                <a href="#" class="auth-form__text-link text-link"
-                  >Chính sách bảo mật</a
-                >
-              </p>
-            </div>
-
-            <div class="auth-form__control">
-              <button class="btn js-cancel-su">TRỞ LẠI</button>
-              <button class="btn btn--primary js-signup-btn">ĐĂNG KÝ</button>
-            </div>
-          </div>
-
-          <div class="auth-form__social">
-            <a href="#" class="auth-form__social--facebook btn btn--width-icon">
-              <i class="fa-brands fa-facebook-square"></i>
-              Kết nối với Facebook
-            </a>
-
-            <a href="#" class="auth-form__social--google btn btn--width-icon">
-              <i class="fa-brands fa-google"></i>
-              Kết nối với Google
-            </a>
-          </div>
-        </div>
-
-        <div class="auth-form auth-form-sign-in js-auth-form-si">
-          <div class="auth-form__container">
-            <div class="auth-form__header">
-              <h3 class="auth-form__heading">Đăng nhập</h3>
-              <span class="auth-form__btn">Đăng ký</span>
-            </div>
-
-            <div class="auth-form__form">
-              <div class="auth-form__form-group">
-                <input
-                  type="text"
-                  id="sign-in-username"
-                  class="auth-form__input"
-                  placeholder="Ten dang nhap"
-                />
-                <input
-                  type="text"
-                  id="sign-in-password"
-                  class="auth-form__input"
-                  placeholder="Mat khau"
-                />
-              </div>
-            </div>
-
-            <div class="auth-form__helper">
-              <p class="auth-form__helper-text">
-                <a
-                  href="#"
-                  id="password-forget"
-                  class="auth-form__text-link text-link"
-                  >Quên mật khẩu</a
-                >
-                <span class="auth-form__helper-line"></span>
-                <a href="#" class="auth-form__text-link text-link">
-                  Trợ giúp
-                  <i class="fa-solid fa-circle-question"></i>
-                </a>
-              </p>
-            </div>
-
-            <div class="auth-form__control">
-              <button class="btn js-cancel-si">TRỞ LẠI</button>
-              <button class="btn btn--primary js-signin-btn">ĐĂNG NHẬP</button>
-            </div>
-          </div>
-
-          <div class="auth-form__social">
-            <a href="#" class="auth-form__social--facebook btn btn--width-icon">
-              <i class="fa-brands fa-facebook-square"></i>
-              Kết nối với Facebook
-            </a>
-
-            <a href="#" class="auth-form__social--google btn btn--width-icon">
-              <i class="fa-brands fa-google"></i>
-              Kết nối với Google
-            </a>
-          </div>
+          <div class="grid__col-2-4"></div>
+          <div class="grid__col-2-4"></div>
+          <div class="grid__col-2-4"></div>
+          <div class="grid__col-2-4"></div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Script part for sign in/sign up modal  -->
-    <!-- <script>
+  <!-- Modal part -->
+  <div class="modal js-modal">
+    <div class="modal__overlay"></div>
+
+    <div class="modal__body js-modal__body">
+      <div class="auth-form auth-form-sign-up js-auth-form-su">
+        <div class="auth-form__container">
+          <div class="auth-form__header">
+            <h3 class="auth-form__heading">Đăng ký</h3>
+            <span class="auth-form__btn">Đăng nhập</span>
+          </div>
+
+          <div class="auth-form__form">
+            <div class="auth-form__form-group">
+              <input type="text" id="this-userName" class="auth-form__input js-auth-form-username"
+                placeholder="Ten dang nhap" />
+              <input type="text" id="this-password" class="auth-form__input js-auth-form-password"
+                placeholder="Mat khau" />
+              <input type="text" id="this-passwordRp" class="auth-form__input js-auth-form-password-repeat"
+                placeholder="Nhap lai mat khau" />
+              <input type="text" id="this-fullName" class="auth-form__input js-auth-form-fullname"
+                placeholder="Ho va ten" />
+              <input type="text" id="this-phone" class="auth-form__input js-auth-form-contact"
+                placeholder="So dien thoai" />
+            </div>
+          </div>
+
+          <div class="auth-form__term-and-service">
+            <p class="auth-form__TaS-text">
+              Bằng việc đăng ký, bạn đã đồng ý với Chewy về
+              <a href="#" class="auth-form__text-link text-link">Điều khoản và dịch vụ</a>
+              &
+              <a href="#" class="auth-form__text-link text-link">Chính sách bảo mật</a>
+            </p>
+          </div>
+
+          <div class="auth-form__control">
+            <button class="btn js-cancel-su">TRỞ LẠI</button>
+            <button class="btn btn--primary js-signup-btn">ĐĂNG KÝ</button>
+          </div>
+        </div>
+
+        <div class="auth-form__social">
+          <a href="#" class="auth-form__social--facebook btn btn--width-icon">
+            <i class="fa-brands fa-facebook-square"></i>
+            Kết nối với Facebook
+          </a>
+
+          <a href="#" class="auth-form__social--google btn btn--width-icon">
+            <i class="fa-brands fa-google"></i>
+            Kết nối với Google
+          </a>
+        </div>
+      </div>
+
+      <div class="auth-form auth-form-sign-in js-auth-form-si">
+        <div class="auth-form__container">
+          <div class="auth-form__header">
+            <h3 class="auth-form__heading">Đăng nhập</h3>
+            <span class="auth-form__btn">Đăng ký</span>
+          </div>
+
+          <div class="auth-form__form">
+            <div class="auth-form__form-group">
+              <input type="text" id="sign-in-username" class="auth-form__input" placeholder="Ten dang nhap" />
+              <input type="text" id="sign-in-password" class="auth-form__input" placeholder="Mat khau" />
+            </div>
+          </div>
+
+          <div class="auth-form__helper">
+            <p class="auth-form__helper-text">
+              <a href="#" id="password-forget" class="auth-form__text-link text-link">Quên mật khẩu</a>
+              <span class="auth-form__helper-line"></span>
+              <a href="#" class="auth-form__text-link text-link">
+                Trợ giúp
+                <i class="fa-solid fa-circle-question"></i>
+              </a>
+            </p>
+          </div>
+
+          <div class="auth-form__control">
+            <button class="btn js-cancel-si">TRỞ LẠI</button>
+            <button class="btn btn--primary js-signin-btn">ĐĂNG NHẬP</button>
+          </div>
+        </div>
+
+        <div class="auth-form__social">
+          <a href="#" class="auth-form__social--facebook btn btn--width-icon">
+            <i class="fa-brands fa-facebook-square"></i>
+            Kết nối với Facebook
+          </a>
+
+          <a href="#" class="auth-form__social--google btn btn--width-icon">
+            <i class="fa-brands fa-google"></i>
+            Kết nối với Google
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script part for sign in/sign up modal  -->
+  <!-- <script>
         const modal = document.querySelector('.js-modal')
         // const signUp = document.querySelector('.js-auth-form-su')
         const signIn = document.querySelector('.js-auth-form-si')
@@ -420,8 +341,9 @@
             modal.classList.add('open-modal-wraper');
         }
     </script> -->
-    <script src="js/header.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/interactive.js"></script>
-  </body>
+  <script src="js/header.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/interactive.js"></script>
+</body>
+
 </html>
