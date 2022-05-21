@@ -127,7 +127,7 @@ const getAllProduct = function () {
                         <span id="js-quantity-in-stock">${quantity}</span>
                     </div>
                     <div class="home-product-item__add-to-card">
-                        <button class="home-product-item__add btn">Add to cart</button>
+                        <button class="home-product-item__add btn js-add-to-card-btn">Add to cart</button>
                     </div>
                 </div>
             
