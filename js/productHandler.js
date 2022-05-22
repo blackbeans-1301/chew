@@ -1,3 +1,4 @@
+
 // if (document.readyState == 'loading') {
 //     document.addEventListener('DOMContentLoaded', ready)
 // } else {
@@ -21,6 +22,8 @@ const addAction = document.querySelector('.js-add-action');
 const cancelAddAction = document.querySelector('.js-cancel-add-product');
 addAction.addEventListener('click', showAddProductModal);
 cancelAddAction.addEventListener('click', hideAddProductModal);
+
+
 
 // ----------------------------------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------------------------------

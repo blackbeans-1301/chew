@@ -1,16 +1,39 @@
 // console.log("clicked")
-
+const token = localStorage.getItem("token");
 const apiUrl = "http://localhost:8888";
 
-async function getData(url) {
+// delete data fetch
+async function deleteData(url = '', token, data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `${token}`
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}
+
+
+// get data function
+async function getData(url, token = "") {
     const response = await fetch(url, {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
             // 'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `${token}`
         },
         redirect: 'follow', // manual, *follow, error
         referrerPolicy: 'no-referrer' // body data type must match "Content-Type" header
@@ -26,7 +49,8 @@ async function postData(url = '', data = {}) {
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `${token}`
             // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         redirect: 'follow', // manual, *follow, error
@@ -35,6 +59,11 @@ async function postData(url = '', data = {}) {
     });
     return response.json(); // parses JSON response into native JavaScript objects
 }
+
+
+
+
+//  get all product
 const getAllProduct = function () {
     getData(`${apiUrl}/allProduct`)
         .then(data => {
@@ -59,7 +88,7 @@ const getAllProduct = function () {
                         style="background-image: url(${imgUrl});">
                     </div>
                     <h4 class="home-product-item__name">
-                        ${productName}
+                        ${productName}, ${productCode}
                     </h4>
 
 
@@ -101,13 +130,49 @@ setTimeout(function () {
     var removeProductBtn = document.getElementsByClassName('js-remove-product');
     for (var i = 0; i < removeProductBtn.length; i++) {
         var button = removeProductBtn[i];
-        button.addEventListener('click', function () {
-            console.log('clicked');
+        button.addEventListener('click', function (event) {
+            // RmBtn.addEventListener('click', removeProduct(code));
+            var btnClicked = event.target;
+            var title = btnClicked.parentElement.parentElement.getElementsByClassName('home-product-item__name')[0].innerText;
+            var code = title.substring(title.search(', ') + 1);
+            code = code.trim();
+            removeProduct(code);
+            // document.location.reload(true);
+            setTimeout(function () {
+                document.location.reload(true);
+            }, 200)
         })
     }
-}, 2000);
+}, 500);
+
+
+// delete product by admin page
+const removeProduct = function (productCode) {
+    var data = {
+        productCode
+    }
+    console.log(data, token);
+    deleteData(`${apiUrl}/admin/product`, token, data)
+        .then(data => {
+            // localStorage.clear();
+            console.log(data); // JSON data parsed by `data.json()` call
+            // localStorage.setItem("token", data.reason.token);
+            // localStorage.setItem("userName", data.reason.userName);
+            // localStorage.setItem("role", data.reason.role);
+            // if (localStorage.getItem("role") == 2)
+            //     location.assign("admin-page.html")
+            // else {
+            //     location.assign("/");
+            // }
+
+        });
+}
 
 // function removeProduct
-function removeProduct(id) {
-    
-}
+// const removePBtn = document.getElementsByClassName('js-remove-product');
+// for (let i = 0; i < removePBtn.length; i++) {
+//     const RmBtn = removePBtn[i];
+
+//     RmBtn.addEventListener('click', removeProduct(code));
+//     RmBtn.addEventListener('click', location.reload);
+// }

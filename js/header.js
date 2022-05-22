@@ -5,25 +5,25 @@ const token = localStorage.getItem("token");
 console.log({ userName })
 console.log(extraInfo)
 async function callApi(url = apiUrl, token = "", method = "GET") {
-  const response = await fetch(url, {
-    method: `${method}`, // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, *same-origin, omit
-    headers: {
-      'Content-Type': 'application/json',
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': `${token}`
-    },
-    redirect: 'follow', // manual, *follow, error
-    referrerPolicy: 'no-referrer' // body data type must match "Content-Type" header
-  });
-  return response.json();
+	const response = await fetch(url, {
+		method: `${method}`, // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json',
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+			'Authorization': `${token}`
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer' // body data type must match "Content-Type" header
+	});
+	return response.json();
 }
 
 const ren = () => {
-  if (userName) {
-    extraInfo.innerHTML = `<li class="header__navbar-item">
+	if (userName) {
+		extraInfo.innerHTML = `<li class="header__navbar-item">
     <a href="#" class="header__navbar-link">
       <i class="fa-solid fa-bell"></i>
       Thông báo
@@ -55,9 +55,9 @@ const ren = () => {
                             </ul>
                         </li>
   `
-  }
-  else {
-    extraInfo.innerHTML = `
+	}
+	else {
+		extraInfo.innerHTML = `
      <li class="header__navbar-item">
     <a href="#" class="header__navbar-link">
       <i class="fa-solid fa-bell"></i>
@@ -81,7 +81,7 @@ const ren = () => {
    >
      Đăng nhập
    </li>`
-  }
+	}
 }
 ren();
 const buttonLogout = document.getElementsByClassName("logout-button")[0];
@@ -89,8 +89,8 @@ buttonLogout.addEventListener('click', () => window.localStorage.clear())
 
 
 const renCart = async () => {
-  await callApi(`${apiUrl}/cart`, token).then(result => {
-    console.log(result);
-  }).catch(err => console.log(err))
+	await callApi(`${apiUrl}/cart`, token).then(result => {
+		console.log(result);
+	}).catch(err => console.log(err))
 }
 renCart();
