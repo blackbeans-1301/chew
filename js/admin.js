@@ -1,6 +1,6 @@
 // console.log("clicked")
 const token = localStorage.getItem("token");
-const apiUrl = "http://localhost:8888";
+const apiUrl = "http://trungdeptry.uetbc.xyz";
 
 // delete data fetch
 async function deleteData(url = '', token, data = {}) {
@@ -67,7 +67,7 @@ async function postData(url = '', data = {}) {
 const getAllProduct = function () {
     getData(`${apiUrl}/allProduct`)
         .then(data => {
-            console.log(typeof data); // JSON data parsed by `data.json()` call
+            // console.log(typeof data); // JSON data parsed by `data.json()` call
             const productList = document.getElementById("main-product-list");
             const productNumber = document.getElementById("js-product-number");
             // const results = data.reason;
@@ -112,7 +112,7 @@ const getAllProduct = function () {
 
             productRawData.forEach(toPrettyData);
 
-            console.log(productRawData); // JSON data parsed by `data.json()` call
+            // console.log(productRawData); // JSON data parsed by `data.json()` call
             // productList.appendChild(productContent);
             productList.innerHTML = productContent;
             productNumber.innerHTML = `<span class="product-list-header__title-text">${productRawData.length} Sản phẩm</span>`

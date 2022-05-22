@@ -72,7 +72,7 @@ const signIn = function () {
         password
     }
 
-    console.log(userInfo);
+    // console.log(userInfo);
     postData(`${apiUrl}/signin`, userInfo)
         .then(data => {
             localStorage.clear();
