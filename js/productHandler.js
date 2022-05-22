@@ -47,22 +47,23 @@ addAction.addEventListener('click', showAddProductModal);
 cancelAddAction.addEventListener('click', hideAddProductModal);
 confirmAddProductBtn.addEventListener('click', function () {
     const productImg = document.getElementsByClassName('js-create-product-productImg')[0].value;
+    const productCode = document.getElementsByClassName('js-create-product-productCode')[0].value;
     // const prdimg = document.getElementById("imgImg").value;
     const productLine = document.getElementsByClassName('js-create-product-productLine')[0].value;
     const productName = document.getElementsByClassName('js-create-product-productName')[0].value;
-    const description = document.getElementsByClassName('js-create-product-description')[0].value;
-    const priceIn = document.getElementsByClassName('js-create-product-priceIn')[0].value;
-    const priceOut = document.getElementsByClassName('js-create-product-priceOut')[0].value;
-    const quantity = document.getElementsByClassName('js-create-product-quantity')[0].value;
+    const textDescription = document.getElementsByClassName('js-create-product-description')[0].value;
+    const buyPrice = document.getElementsByClassName('js-create-product-priceIn')[0].value;
+    const sellPrice = document.getElementsByClassName('js-create-product-priceOut')[0].value;
+    const quantityInStock = document.getElementsByClassName('js-create-product-quantity')[0].value;
 
     productData = {
-        productImg,
-        productLine,
+        productCode,
         productName,
-        description,
-        priceIn,
-        priceOut,
-        quantity
+        productLine,
+        quantityInStock,
+        textDescription,
+        buyPrice,
+        sellPrice
     }
 
     console.log(productData);
