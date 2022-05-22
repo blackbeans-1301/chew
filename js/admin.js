@@ -56,24 +56,24 @@ const getAllProduct = function () {
                 var data = `<div class="grid__col-2-4">
                 <div class="home-product-item">
                     <div class="home-product-item__img"
-                        style="background-image: url(https://img.chewy.com/is/image/catalog/46861_MAIN._AC_SS348_V1636150597_.jpg);">
+                        style="background-image: url(${imgUrl});">
                     </div>
-                    <h4 class="home-product-item__name">Blue Buffalo Life Protection Formula Adult
-                        Chicken & Brown Rice Recipe Dry Dog Food, 30-lb bag
+                    <h4 class="home-product-item__name">
+                        ${productName}
                     </h4>
 
 
                     <div class="home-product-item__price">
                         <span class="home-product-item__price-icon">$</span>
-                        <span class="home-product-item__price-number">59.9</span>
+                        <span class="home-product-item__price-number">${price}</span>
                     </div>
 
                     <div class="home-product-item__quantity">
                         <span id="quantity-title">Số lượng: </span>
-                        <span id="js-quantity-in-stock">236</span>
+                        <span id="js-quantity-in-stock">${quantity}</span>
                     </div>
                     <div class="home-product-item__add-to-card">
-                        <button class="home-product-item__add btn js-remove-product">Xóa/Sửa</button>
+                        <button class="home-product-item__add btn js-remove-product">Xóa</button>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:8888";
+// const apiUrl = "http://localhost:8888"
 
 async function getData(url, token = "") {
     const response = await fetch(url, {
@@ -80,16 +80,17 @@ const signIn = function () {
             localStorage.setItem("token", data.reason.token);
             localStorage.setItem("userName", data.reason.userName);
             localStorage.setItem("role", data.reason.role);
-            if (localStorage.getItem("role") == 1)
+            if (localStorage.getItem("role") == 2)
+                location.assign("admin-page.html")
+            else {
                 location.assign("/");
-            else location.assign("admin-page.html")
+            }
         });
 
 }
 
 // const btnSignup = document.querySelector('.js-signup-btn');
 // btnSignup.addEventListener('click', signUp);
-
 
 
 const getAllProduct = function () {
