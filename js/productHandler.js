@@ -23,7 +23,8 @@ async function postData(url = '', data = {}) {
         redirect: 'follow', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
         body: JSON.stringify(data) // body data type must match "Content-Type" header
-    });
+    })
+        .catch(function (err) { console.log("req failed:" + err) });
     return response.json(); // parses JSON response into native JavaScript objects
 }
 
@@ -68,8 +69,9 @@ confirmAddProductBtn.addEventListener('click', function () {
 
     postData(`${apiUrl}/admin/product`, productData)
         .then(data => {
-            console.log(data); // JSON data parsed by `data.json()` call
-        });
+            console.log(data);
+        })
+        .catch(err => { console.log("then error: " + err); });
 });
 
 
