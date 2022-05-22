@@ -1,14 +1,15 @@
 const apiUrl = "http://localhost:8888";
 
-async function getData(url) {
+async function getData(url, token = "") {
     const response = await fetch(url, {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
             // 'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `${token}`
         },
         redirect: 'follow', // manual, *follow, error
         referrerPolicy: 'no-referrer' // body data type must match "Content-Type" header
@@ -24,7 +25,8 @@ async function postData(url = '', data = {}) {
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `${token}`
             // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         redirect: 'follow', // manual, *follow, error
@@ -77,7 +79,10 @@ const signIn = function () {
             console.log(data); // JSON data parsed by `data.json()` call
             localStorage.setItem("token", data.reason.token);
             localStorage.setItem("userName", data.reason.userName);
-            location.assign("/");
+            localStorage.setItem("role", data.reason.role);
+            if (localStorage.getItem("role") == 1)
+                location.assign("/");
+            else location.assign("admin-page.html")
         });
 
 }
@@ -90,7 +95,7 @@ const signIn = function () {
 const getAllProduct = function () {
     getData(`${apiUrl}/allProduct`)
         .then(data => {
-            console.log(typeof data); // JSON data parsed by `data.json()` call
+            // JSON data parsed by `data.json()` call
             const productList = document.getElementById("product-list");
             // const results = data.reason;
 
@@ -114,9 +119,6 @@ const getAllProduct = function () {
                     ${productName}, ${productCode}
                     </h4>
                     </a>
-                    
-                    
-            
                     <div class="home-product-item__price">
                         <span class="home-product-item__price-icon">$</span>
                         <span class="home-product-item__price-number">${price}</span>
@@ -137,7 +139,7 @@ const getAllProduct = function () {
 
             productRawData.forEach(toPrettyData);
 
-            console.log(productRawData); // JSON data parsed by `data.json()` call
+            // JSON data parsed by `data.json()` call
             // productList.appendChild(productContent);
             productList.innerHTML = productContent;
 
@@ -170,9 +172,11 @@ const getProductLine = function (categoryName) {
                         <div class="home-product-item__img"
                             style="background-image: url(${imgUrl});">
                         </div>
-                        <h4 class="home-product-item__name">
-                            ${productName}, ${productCode}
-                        </h4>
+                        <a href="productDetail.html?code=${productCode}">
+                    <h4 class="home-product-item__name" >
+                    ${productName}, ${productCode}
+                    </h4>
+                    </a>
                         
                 
                         <div class="home-product-item__price">
@@ -205,8 +209,12 @@ const getProductLine = function (categoryName) {
     }
 };
 
-const getUserCartData = function() {
-    
+const order = () => {
+
+}
+
+const getUserCartData = function () {
+
 }
 
 const lineAllProduct = document.querySelector('.js-category__all-product');
@@ -218,6 +226,8 @@ const lineCatMilk = document.querySelector('.js-category__cat-milk');
 
 getAllProduct();
 const btnSignin = document.querySelector('.js-signin-btn');
+const btnOrder = document.querySelector(".js-order-btn");
+// btnOrder[0].addEventListener('click', Order)
 btnSignin.addEventListener('click', signIn);
 
 lineDogPA.addEventListener('click', getProductLine('DOG_PA'));
@@ -225,3 +235,4 @@ lineCatPA.addEventListener('click', getProductLine('CAT_PA'));
 lineDogKanel.addEventListener('click', getProductLine('DOG_KANEL'));
 lineCatKanel.addEventListener('click', getProductLine('CAT_KANEL'));
 lineCatMilk.addEventListener('click', getProductLine('CAT_MILK'));
+lineAllProduct.addEventListener('click', getAllProduct);
