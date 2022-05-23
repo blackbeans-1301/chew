@@ -57,20 +57,29 @@ confirmAddProductBtn.addEventListener('click', function () {
     const quantityInStock = document.getElementsByClassName('js-create-product-quantity')[0].value;
 
     productData = {
-        productCode,
-        productName,
-        productLine,
-        quantityInStock,
-        textDescription,
-        buyPrice,
-        sellPrice
+        productCode: productCode,
+        productName: productName,
+        productLine: productLine,
+        quantityInStock: quantityInStock,
+        textDescription: textDescription,
+        buyPrice: buyPrice,
+        sellPrice: sellPrice
     }
 
     console.log(productData);
 
     postData(`${apiUrl}/admin/product`, productData)
         .then(data => {
-            console.log(data);
+            // console.log(data);
+            alert(data.reason);
+            document.getElementsByClassName('js-create-product-productImg')[0].value = '';
+            document.getElementsByClassName('js-create-product-productCode')[0].value = '';
+            document.getElementsByClassName('js-create-product-productLine')[0].value = '';
+            document.getElementsByClassName('js-create-product-description')[0].value = '';
+            document.getElementsByClassName('js-create-product-productName')[0].value = '';
+            document.getElementsByClassName('js-create-product-priceIn')[0].value = '';
+            document.getElementsByClassName('js-create-product-priceOut')[0].value = '';
+            document.getElementsByClassName('js-create-product-quantity')[0].value = '';
         })
         .catch(err => { console.log("then error: " + err); });
 });

@@ -66,14 +66,49 @@ setTimeout(() => {
 }, 1000);
 
 
+// ------------------------------ order function ------------------------------
+function orderCart () {
+	var items = document.getElementsByClassName('header__cart-item');
+	var products = [];
+
+	for (var i = 0; i < items.length; i++) {
+		var item = items[i];
+		var title = item.getElementsByClassName('header__cart-item-name')[0].innerText;
+		//get product code
+		var productCode = title.substring(title.search(', ') + 1);
+		productCode = productCode.trim();
+		var quantityOrdered = item.getElementsByClassName('input-quantity-box')[0].innerText;
+
+		var product = {
+			productCode,
+			quantityOrdered
+		}
+
+		products[i] = product;
+	}
+
+	postData(`${apiUrl}/order`, { products })
+	.then(data => {
+		alert(data.reason);
+	}).catch(err => { console.log(err) })
+}
+
+// const orderBtn = document.getElementsByClassName('js-order-btn')[0];
+// orderBtn.addEventListener('click', orderCart);
+// ------------------------------------------------------------
+
 
 // get user cart infomation
 function getUserCart () {
 	getData(`${apiUrl}/cart`)
-	.then(function (data) {
+		.then(function (data) {
 		console.log(data);
-	}).catch(function (err) {console.log("err when get user cart: " + err)});
+		})
+		.catch(function (err) {console.log("err when get user cart: " + err)});
+	
 }
+
+func
 
 // ----------------------------------------------------------------
 
@@ -93,8 +128,10 @@ function addToCartClicked(event) {
 	imgSrc = imgSrc.replaceAll('"', '');
 	// Get product price
 	var price = shopItem.getElementsByClassName('home-product-item__price')[0].getElementsByClassName('home-product-item__price-number')[0].innerText;
+	var quantity = shopItem.getElementsByClassName('home-product-item__quantity')[0].getElementsByClassName('js-quantity')[0].innerText;
 
 	var parentElement = document.getElementsByClassName('header__cart-list-item')[0];
+	
 
 	// loop item through all product in cart: check if this product has in the cart
 	if (!checkIfProductInCart(productCode)) {
@@ -122,7 +159,19 @@ function addToCartClicked(event) {
     </div>
   </li>`;
 
+		data = {
+			productCode,
+			quantity,
+			imgSrc,
+			title,
+			price
+		}
+		postData(`${apiUrl}/cart`)
+			.then(data => {
+				console.log(data);
+			}).catch(err => { console.log(err) })
 		// console.log(parentElement.innerHTML);
+		getUserCart();
 		addRemoveListener();
 		updateInputFields();
 		updateCartTotal();
@@ -163,21 +212,36 @@ function addRemoveListener() {
 		const rmBtn = removeCartItemBtns[i];
 		rmBtn.addEventListener('click', function (event) {
 			var buttonClicked = event.target;
+			var title = buttonClicked.parentElement.parentElement.getElementsByClassName('header__cart-item-name')[0].innerText;
+			var productCode = title.substring(title.search(', ') + 1);
+			productCode = productCode.trim();
+			deleteData(`${apiUrl}/cart`, { productCode: productCode })
+			.then(function (data) {
+				console.log(data);
+			}).catch(function (err) {
+				console.log(err);
+			})
+
 			buttonClicked.parentElement.parentElement.parentElement.remove();
 			updateCartTotal();
+			updateCartNotice();
 		})
 	}
 }
 
-for (let i = 0; i < removeCartItemBtns.length; i++) {
-	const rmBtn = removeCartItemBtns[i];
-	rmBtn.addEventListener('click', function (event) {
-		var buttonClicked = event.target;
-		buttonClicked.parentElement.parentElement.parentElement.remove();
-		updateCartTotal();
-		updateCartNotice();
-	})
-}
+// for (let i = 0; i < removeCartItemBtns.length; i++) {
+// 	const rmBtn = removeCartItemBtns[i];
+// 	rmBtn.addEventListener('click', function (event) {
+// 		var buttonClicked = event.target;
+
+
+
+
+// 		buttonClicked.parentElement.parentElement.parentElement.remove();
+// 		updateCartTotal();
+// 		updateCartNotice();
+// 	})
+// }
 
 // updateCartTotal when change the quantity of the product
 
@@ -234,7 +298,7 @@ function updateCartTotal() {
 		cartTotal += price * quantity;
 	}
 	cartTotal = cartTotal.toFixed(1);
-	document.getElementsByClassName('total-price-number')[0].innerText = `${cartTotal}`;
+	document.getElementsByClassName('total-price-number')[0].innerText = `$${cartTotal}`;
 }
 
 

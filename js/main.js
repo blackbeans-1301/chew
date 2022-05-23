@@ -58,7 +58,7 @@ const signUp = function () {
         }
         postData(`${apiUrl}/signup`, userInfo)
             .then(data => {
-                console.log(data); // JSON data parsed by `data.json()` call
+                alert(data.reason); // JSON data parsed by `data.json()` call
             });
     }
 }
@@ -127,7 +127,7 @@ const getAllProduct = function () {
             
                     <div class="home-product-item__quantity">
                         <span id="quantity-title">Số lượng: </span>
-                        <span id="js-quantity-in-stock">${quantity}</span>
+                        <span id="js-quantity-in-stock" class="js-quantity">${quantity}</span>
                     </div>
                     <div class="home-product-item__add-to-card">
                         <button class="home-product-item__add btn js-add-to-card-btn">Add to cart</button>
@@ -138,8 +138,8 @@ const getAllProduct = function () {
                 productContent += data + '<br>';
             }
 
-            productRawData.forEach(toPrettyData);
-
+            productRawData.forEach(toPrettyData);   
+            console.log(productRawData);
             // JSON data parsed by `data.json()` call
             // productList.appendChild(productContent);
             productList.innerHTML = productContent;
@@ -227,8 +227,6 @@ const lineCatMilk = document.querySelector('.js-category__cat-milk');
 
 getAllProduct();
 const btnSignin = document.querySelector('.js-signin-btn');
-const btnOrder = document.querySelector(".js-order-btn");
-// btnOrder[0].addEventListener('click', Order)
 btnSignin.addEventListener('click', signIn);
 
 lineDogPA.addEventListener('click', getProductLine('DOG_PA'));
