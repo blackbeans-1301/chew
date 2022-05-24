@@ -105,7 +105,46 @@ function orderCart () {
 function getUserCart () {
 	getData(`${apiUrl}/cart`)
 		.then(function (data) {
-		console.log(data);
+		// console.log(data);
+			var productArray = data.reason;
+			var userCart = "";
+			productArray.forEach(product => {
+				var C_productCode = product.productCode;
+				var C_productName = product.productName;
+				var C_productImage = product.image;
+				var C_productPrice = product.sellPrice;
+				var C_quantity = product.quantity;
+				
+				var C_productInfo = `<li class="header__cart-item">
+				<img src="${C_productImage}" alt=""
+				  class="header__cart-img" />
+				<div class="header__cart-item-info">
+				  <div class="header__cart-item-head">
+					<h5 style="text-align: left" class="header__cart-item-name">
+					  ${C_productName}, ${C_productCode}
+					</h5>
+					<span class="header__cart-item-dolar">$</span>
+					<span class="header__cart-item-price">${C_productPrice}</span>
+				  </div>
+				  <div style="margin-top: 8px" class="header__cart-item-body">
+					<div class="input-quantity-field">
+					  <span class="input-quantity-title" style="font-size: 1.4rem;">Số lượng</span>
+					  <input type="number" class="input-quantity-box" placeholder="SL" value="${C_quantity}">
+					</div>
+					<button class="header__cart-item-remove-item js-remove-item-btn">
+					  Xóa
+					</button>
+				  </div>
+				</div>
+			  </li>`
+				userCart += C_productInfo;
+			})
+
+			var parentElement = document.getElementsByClassName('header__cart-list-item')[0];
+			parentElement.innerHTML = userCart;
+			updateCartTotal();
+			updateCartNotice();
+			updateInputFields();
 		})
 		.catch(function (err) {console.log("err when get user cart: " + err)});
 }
