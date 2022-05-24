@@ -26,7 +26,7 @@ async function postData(url = '', data = {}) {
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `${token}`
+            // 'Authorization': `${token}`
             // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         redirect: 'follow', // manual, *follow, error
@@ -59,7 +59,7 @@ const signUp = function () {
         postData(`${apiUrl}/signup`, userInfo)
             .then(data => {
                 alert(data.reason); // JSON data parsed by `data.json()` call
-            });
+            }).catch(err => {console.log(err)});
     }
 }
 
@@ -89,8 +89,8 @@ const signIn = function () {
 
 }
 
-// const btnSignup = document.querySelector('.js-signup-btn');
-// btnSignup.addEventListener('click', signUp);
+const btnSignup = document.querySelector('.js-signup-btn');
+btnSignup.addEventListener('click', signUp);
 
 
 const getAllProduct = function () {
@@ -138,7 +138,7 @@ const getAllProduct = function () {
                 productContent += data + '<br>';
             }
 
-            productRawData.forEach(toPrettyData);   
+            productRawData.forEach(toPrettyData);
             console.log(productRawData);
             // JSON data parsed by `data.json()` call
             // productList.appendChild(productContent);
@@ -203,6 +203,8 @@ const getProductLine = function (categoryName) {
                 productRawData.forEach(toPrettyData);
 
                 console.log(productRawData); // JSON data parsed by `data.json()` call
+                // removeArr();
+
                 // productList.appendChild(productContent);
                 productList.innerHTML = productContent;
 
@@ -210,13 +212,8 @@ const getProductLine = function (categoryName) {
     }
 };
 
-const order = () => {
 
-}
 
-const getUserCartData = function () {
-
-}
 
 const lineAllProduct = document.querySelector('.js-category__all-product');
 const lineDogPA = document.querySelector('.js-category__dog-pa');
@@ -225,13 +222,26 @@ const lineDogKanel = document.querySelector('.js-category__dog-kanel');
 const lineCatKanel = document.querySelector('.js-category__cat-kanel');
 const lineCatMilk = document.querySelector('.js-category__cat-milk');
 
+// function removeArr() {
+//     lineAllProduct.classList.remove('category-item--active');
+//     lineDogPA.classList.remove('category-item--active');
+//     lineCatPA.classList.remove('category-item--active');
+//     lineDogKanel.classList.remove('category-item--active');
+//     lineCatKanel.classList.remove('category-item--active');
+//     lineCatMilk.classList.remove('category-item--active');
+// }
+
 getAllProduct();
 const btnSignin = document.querySelector('.js-signin-btn');
 btnSignin.addEventListener('click', signIn);
-
 lineDogPA.addEventListener('click', getProductLine('DOG_PA'));
 lineCatPA.addEventListener('click', getProductLine('CAT_PA'));
 lineDogKanel.addEventListener('click', getProductLine('DOG_KANEL'));
 lineCatKanel.addEventListener('click', getProductLine('CAT_KANEL'));
 lineCatMilk.addEventListener('click', getProductLine('CAT_MILK'));
 lineAllProduct.addEventListener('click', getAllProduct);
+
+
+const updateProductLine = function(code) {
+    
+}

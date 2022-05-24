@@ -80,7 +80,10 @@ confirmAddProductBtn.addEventListener('click', function () {
             document.getElementsByClassName('js-create-product-priceIn')[0].value = '';
             document.getElementsByClassName('js-create-product-priceOut')[0].value = '';
             document.getElementsByClassName('js-create-product-quantity')[0].value = '';
-        })
+            document.location.reload(true);
+        }
+        // location.assign.reload(true);
+        )
         .catch(err => { console.log("then error: " + err); });
 });
 

@@ -58,13 +58,16 @@ async function deleteData(url = '', data = {}) {
 
 
 setTimeout(() => {
+	updateEventAddtoCart();
+}, 1000);
+
+function updateEventAddtoCart() {
 	const addToCartBtn = document.getElementsByClassName('js-add-to-card-btn');
 	for (var i = 0; i < addToCartBtn.length; i++) {
 		var button = addToCartBtn[i];
 		button.addEventListener('click', addToCartClicked);
 	}
-}, 1000);
-
+}
 
 // ------------------------------ order function ------------------------------
 function orderCart () {
@@ -105,10 +108,7 @@ function getUserCart () {
 		console.log(data);
 		})
 		.catch(function (err) {console.log("err when get user cart: " + err)});
-	
 }
-
-func
 
 // ----------------------------------------------------------------
 
