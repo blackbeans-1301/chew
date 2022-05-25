@@ -59,7 +59,7 @@ const signUp = function () {
         postData(`${apiUrl}/signup`, userInfo)
             .then(data => {
                 alert(data.reason); // JSON data parsed by `data.json()` call
-            }).catch(err => {console.log(err)});
+            }).catch(err => { console.log(err) });
     }
 }
 
@@ -93,8 +93,8 @@ const btnSignup = document.querySelector('.js-signup-btn');
 btnSignup.addEventListener('click', signUp);
 
 
-const getAllProduct = function () {
-    getData(`${apiUrl}/allProduct`)
+const getAllProduct = function (search = "", sort = "") {
+    getData(`${apiUrl}/allProduct?search=${search}&sort=${sort}`)
         .then(data => {
             // JSON data parsed by `data.json()` call
             const productList = document.getElementById("product-list");
@@ -222,15 +222,6 @@ const lineDogKanel = document.querySelector('.js-category__dog-kanel');
 const lineCatKanel = document.querySelector('.js-category__cat-kanel');
 const lineCatMilk = document.querySelector('.js-category__cat-milk');
 
-// function removeArr() {
-//     lineAllProduct.classList.remove('category-item--active');
-//     lineDogPA.classList.remove('category-item--active');
-//     lineCatPA.classList.remove('category-item--active');
-//     lineDogKanel.classList.remove('category-item--active');
-//     lineCatKanel.classList.remove('category-item--active');
-//     lineCatMilk.classList.remove('category-item--active');
-// }
-
 getAllProduct();
 const btnSignin = document.querySelector('.js-signin-btn');
 btnSignin.addEventListener('click', signIn);
@@ -242,6 +233,23 @@ lineCatMilk.addEventListener('click', getProductLine('CAT_MILK'));
 lineAllProduct.addEventListener('click', getAllProduct);
 
 
-const updateProductLine = function(code) {
-    
+const updateProductLine = function (code) {
+
 }
+const btnSearch = document.getElementsByClassName("header__search-btn")
+btnSearch[0].addEventListener('click', () => {
+    const search = document.getElementsByClassName("header__search-input");
+    const searchQuery = search[0].value;
+    console.log({ searchQuery });
+    getAllProduct(searchQuery);
+})
+
+const ascBtn = document.getElementById("ascBtn");
+const descBtn = document.getElementById("descBtn");
+const sortProduct = (sort) => {
+    const search = document.getElementsByClassName("header__search-input");
+    const searchQuery = search[0].value;
+    getAllProduct(searchQuery, sort);
+}
+ascBtn.addEventListener('click', () => sortProduct("priceAsc"));
+descBtn.addEventListener('click', () => sortProduct("priceDesc"));
