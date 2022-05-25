@@ -143,15 +143,25 @@ const getAllProduct = function () {
             // JSON data parsed by `data.json()` call
             // productList.appendChild(productContent);
             productList.innerHTML = productContent;
-
         }).catch(err => console.log(err));
 }
+
+
+// function updateEventAddtoCart() {
+// 	const addToCartBtn = document.getElementsByClassName('js-add-to-card-btn');
+//     console.log(addToCartBtn);
+// 	for (var i = 0; i < addToCartBtn.length; i++) {
+// 		var button = addToCartBtn[i];
+//         console.log(i);
+// 		button.addEventListener('click', addToCartClicked());
+// 	}
+// }
 
 const getProductLine = function (categoryName) {
     return function () {
         getData(`${apiUrl}/listProduct/${categoryName}`)
             .then(data => {
-
+                console.log(typeof categoryName);
                 const productList = document.getElementById("product-list");
                 var productContent = '';
 
@@ -202,31 +212,18 @@ const getProductLine = function (categoryName) {
 
                 productRawData.forEach(toPrettyData);
 
-                console.log(productRawData); // JSON data parsed by `data.json()` call
+                // console.log(productRawData); // JSON data parsed by `data.json()` call
                 // removeArr();
 
                 // productList.appendChild(productContent);
                 productList.innerHTML = productContent;
+                updateEventAddtoCart();
 
             }).catch(err => console.log(err));
     }
 };
 
 
-
-function updateEventAddtoCart() {
-	const addToCartBtn = document.getElementsByClassName('js-add-to-card-btn');
-	for (var i = 0; i < addToCartBtn.length; i++) {
-		var button = addToCartBtn[i];
-        console.log(i);
-		button.addEventListener('click', addToCartClicked());
-	}
-}
-
-const updateProductLine = function(code) {
-    getProductLine(code);
-    updateEventAddtoCart();
-}
 
 
 
@@ -250,9 +247,9 @@ const lineCatMilk = document.querySelector('.js-category__cat-milk');
 getAllProduct();
 const btnSignin = document.querySelector('.js-signin-btn');
 btnSignin.addEventListener('click', signIn);
-lineDogPA.addEventListener('click', updateProductLine('DOG_PA'));
-lineCatPA.addEventListener('click', updateProductLine('CAT_PA'));
-lineDogKanel.addEventListener('click', updateProductLine('DOG_KANEL'));
-lineCatKanel.addEventListener('click', updateProductLine('CAT_KANEL'));
-lineCatMilk.addEventListener('click', updateProductLine('CAT_MILK'));
+lineDogPA.addEventListener('click', getProductLine('DOG_PA'));
+lineCatPA.addEventListener('click', getProductLine('CAT_PA'));
+lineDogKanel.addEventListener('click', getProductLine('DOG_KANEL'));
+lineCatKanel.addEventListener('click', getProductLine('CAT_KANEL'));
+lineCatMilk.addEventListener('click', getProductLine('CAT_MILK'));
 lineAllProduct.addEventListener('click', getAllProduct);
