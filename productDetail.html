@@ -56,17 +56,16 @@
             </li>
 
             <!-- DONT HAVE ACCOUNT, NEED TO SIGN UP -->
-            <li
+            <!-- <li
               class="header__navbar-item header__navbar-item--bold header__navbar-item--separate js-sign-up"
             >
-              <!-- <button class="js-sign-up">Đăng ký</button> -->
               Đăng ký
             </li>
             <li
               class="header__navbar-item header__navbar-item--bold js-sign-in"
             >
               Đăng nhập
-            </li>
+            </li> -->
 
             <!-- HAS ACCOUNT LOGGED IN -->
             <!-- <li class="header__navbar-item header__navbar-user-info">
@@ -124,53 +123,38 @@
             </button>
           </div>
 
+
           <div class="header__cart">
             <div class="header__cart-wrap">
               <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
 
-              <span class="header__cart-notice">3</span>
+              <span class="header__cart-notice">0</span>
 
               <!-- No cart: header__cart-list--empty-cart -->
               <div class="header__cart-list">
-                <img
-                  src="https://cdni.iconscout.com/illustration/free/thumb/empty-cart-4085814-3385483.png"
-                  alt=""
-                  class="header__cart-list--empty-img"
-                />
+                <!-- <div class="header__cart-list--empty-wrap open">
+                <img src="https://cdni.iconscout.com/illustration/free/thumb/empty-cart-4085814-3385483.png" alt=""
+                  class="header__cart-list--empty-img" />
                 <p class="header__cart-list--empty-text">Cart is empty..!</p>
+              </div> -->
 
                 <!-- Has item in cart -->
-                <h4 class="header__cart-heading">Product added</h4>
-                <ul class="header__cart-list-item">
-                  <li class="header__cart-item">
-                    <img
-                      src="https://img.chewy.com/is/image/catalog/46861_MAIN._AC_SS208_V1636150597_.jpg"
-                      alt=""
-                      class="header__cart-img"
-                    />
-                    <div class="header__cart-item-info">
-                      <div class="header__cart-item-head">
-                        <h5 class="header__cart-item-name">
-                          Blue Buffalo Life Protection Formula Adult Chicken &
-                          Brown Rice Recipe Dry Dog Food, 30-lb bag
-                        </h5>
-                        <span class="header__cart-item-dolar">$</span>
-                        <span class="header__cart-item-price">52.99</span>
-                      </div>
-                      <div class="header__cart-item-body">
-                        <button
-                          class="header__cart-item-remove-item js-remove-item"
-                        >
-                          Remove
-                        </button>
-                      </div>
+                <div class="header__cart-list--has-item">
+                  <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+                  <ul class="header__cart-list-item"></ul>
+                  <div class="cart-footer">
+                    <div class="total-price">
+                      <span class="total-price-text">Tổng đơn hàng</span>
+                      <span class="total-price-number">$0</span>
                     </div>
-                  </li>
-                </ul>
-
-                <button class="header__cart-check-cart btn btn--primary">
-                  Đặt hàng
-                </button>
+                    <button
+                      onclick="orderCart()"
+                      class="header__cart-check-cart btn btn--primary js-order-btn"
+                    >
+                      Đặt hàng
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -199,8 +183,8 @@
           </div>
 
           <div class="purchase-info">
-            <input type="number" min="0" value="1" />
-            <button type="button" class="btn">
+            <input id="js-quantity" type="number" min="1" value="1" />
+            <button id="js-AddToCartBtn" type="button" class="btn">
               Add to Cart <i class="fas fa-shopping-cart"></i>
             </button>
             <button type="button" class="btn">Compare</button>

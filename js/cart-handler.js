@@ -147,7 +147,7 @@ function getUserCart () {
 // ----------------------------------------------------------------
 
 function addToCartClicked(event) {
-	var button = event.target;
+	var button = event.target;                               
 	var shopItem = button.parentElement.parentElement;
 
 	// get title of the product
