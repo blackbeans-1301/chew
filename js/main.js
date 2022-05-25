@@ -59,7 +59,7 @@ const signUp = function () {
         postData(`${apiUrl}/signup`, userInfo)
             .then(data => {
                 alert(data.reason); // JSON data parsed by `data.json()` call
-            }).catch(err => { console.log(err) });
+            }).catch(err => {console.log(err)});
     }
 }
 
@@ -93,8 +93,8 @@ const btnSignup = document.querySelector('.js-signup-btn');
 btnSignup.addEventListener('click', signUp);
 
 
-const getAllProduct = function (search = "", sort = "") {
-    getData(`${apiUrl}/allProduct?search=${search}&sort=${sort}`)
+const getAllProduct = function () {
+    getData(`${apiUrl}/allProduct`)
         .then(data => {
             // JSON data parsed by `data.json()` call
             const productList = document.getElementById("product-list");
@@ -190,7 +190,7 @@ const getProductLine = function (categoryName) {
                             <span id="js-quantity-in-stock">${quantity}</span>
                         </div>
                         <div class="home-product-item__add-to-card">
-                            <button class="home-product-item__add btn">Add to cart</button>
+                            <button class="home-product-item__add btn js-add-to-card-btn">Add to cart</button>
                         </div>
                     </div>
                 
@@ -214,6 +214,22 @@ const getProductLine = function (categoryName) {
 
 
 
+function updateEventAddtoCart() {
+	const addToCartBtn = document.getElementsByClassName('js-add-to-card-btn');
+	for (var i = 0; i < addToCartBtn.length; i++) {
+		var button = addToCartBtn[i];
+        console.log(i);
+		button.addEventListener('click', addToCartClicked());
+	}
+}
+
+const updateProductLine = function(code) {
+    getProductLine(code);
+    updateEventAddtoCart();
+}
+
+
+
 
 const lineAllProduct = document.querySelector('.js-category__all-product');
 const lineDogPA = document.querySelector('.js-category__dog-pa');
@@ -222,34 +238,21 @@ const lineDogKanel = document.querySelector('.js-category__dog-kanel');
 const lineCatKanel = document.querySelector('.js-category__cat-kanel');
 const lineCatMilk = document.querySelector('.js-category__cat-milk');
 
+// function removeArr() {
+//     lineAllProduct.classList.remove('category-item--active');
+//     lineDogPA.classList.remove('category-item--active');
+//     lineCatPA.classList.remove('category-item--active');
+//     lineDogKanel.classList.remove('category-item--active');
+//     lineCatKanel.classList.remove('category-item--active');
+//     lineCatMilk.classList.remove('category-item--active');
+// }
+
 getAllProduct();
 const btnSignin = document.querySelector('.js-signin-btn');
 btnSignin.addEventListener('click', signIn);
-lineDogPA.addEventListener('click', getProductLine('DOG_PA'));
-lineCatPA.addEventListener('click', getProductLine('CAT_PA'));
-lineDogKanel.addEventListener('click', getProductLine('DOG_KANEL'));
-lineCatKanel.addEventListener('click', getProductLine('CAT_KANEL'));
-lineCatMilk.addEventListener('click', getProductLine('CAT_MILK'));
+lineDogPA.addEventListener('click', updateProductLine('DOG_PA'));
+lineCatPA.addEventListener('click', updateProductLine('CAT_PA'));
+lineDogKanel.addEventListener('click', updateProductLine('DOG_KANEL'));
+lineCatKanel.addEventListener('click', updateProductLine('CAT_KANEL'));
+lineCatMilk.addEventListener('click', updateProductLine('CAT_MILK'));
 lineAllProduct.addEventListener('click', getAllProduct);
-
-
-const updateProductLine = function (code) {
-
-}
-const btnSearch = document.getElementsByClassName("header__search-btn")
-btnSearch[0].addEventListener('click', () => {
-    const search = document.getElementsByClassName("header__search-input");
-    const searchQuery = search[0].value;
-    console.log({ searchQuery });
-    getAllProduct(searchQuery);
-})
-
-const ascBtn = document.getElementById("ascBtn");
-const descBtn = document.getElementById("descBtn");
-const sortProduct = (sort) => {
-    const search = document.getElementsByClassName("header__search-input");
-    const searchQuery = search[0].value;
-    getAllProduct(searchQuery, sort);
-}
-ascBtn.addEventListener('click', () => sortProduct("priceAsc"));
-descBtn.addEventListener('click', () => sortProduct("priceDesc"));

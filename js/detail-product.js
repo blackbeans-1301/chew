@@ -1,6 +1,6 @@
 
-// const apiUrl = "http://trungdeptry.uetbc.xyz";
-const apiUrl = "http://localhost:8888";
+const apiUrl = "http://trungdeptry.uetbc.xyz";
+// const apiUrl = "http://localhost:8888";
 
 async function getData(url) {
     const response = await fetch(url, {

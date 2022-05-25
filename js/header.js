@@ -1,6 +1,6 @@
 
-// const apiUrl = "http://trungdeptry.uetbc.xyz";
-const apiUrl = "http://localhost:8888";
+const apiUrl = "http://trungdeptry.uetbc.xyz";
+// const apiUrl = "http://localhost:8888";
 
 const extraInfo = document.getElementById("extraInfo");
 const userName = localStorage.getItem("userName");
@@ -91,9 +91,9 @@ const buttonLogout = document.getElementsByClassName("logout-button")[0];
 buttonLogout.addEventListener('click', () => window.localStorage.clear())
 
 
-const renCart = async () => {
-	await callApi(`${apiUrl}/cart`, token).then(result => {
-		console.log(result);
-	}).catch(err => console.log(err))
-}
-renCart();
+// const renCart = async () => {
+// 	await callApi(`${apiUrl}/cart`, token).then(result => {
+// 		console.log(result);
+// 	}).catch(err => console.log(err))
+// }
+// renCart();
