@@ -59,7 +59,7 @@ const signUp = function () {
         postData(`${apiUrl}/signup`, userInfo)
             .then(data => {
                 alert(data.reason); // JSON data parsed by `data.json()` call
-            }).catch(err => {console.log(err)});
+            }).catch(err => { console.log(err) });
     }
 }
 
@@ -253,3 +253,25 @@ lineDogKanel.addEventListener('click', getProductLine('DOG_KANEL'));
 lineCatKanel.addEventListener('click', getProductLine('CAT_KANEL'));
 lineCatMilk.addEventListener('click', getProductLine('CAT_MILK'));
 lineAllProduct.addEventListener('click', getAllProduct);
+
+
+const updateProductLine = function (code) {
+
+}
+const btnSearch = document.getElementsByClassName("header__search-btn")
+btnSearch[0].addEventListener('click', () => {
+    const search = document.getElementsByClassName("header__search-input");
+    const searchQuery = search[0].value;
+    console.log({ searchQuery });
+    getAllProduct(searchQuery);
+})
+
+const ascBtn = document.getElementById("ascBtn");
+const descBtn = document.getElementById("descBtn");
+const sortProduct = (sort) => {
+    const search = document.getElementsByClassName("header__search-input");
+    const searchQuery = search[0].value;
+    getAllProduct(searchQuery, sort);
+}
+ascBtn.addEventListener('click', () => sortProduct("priceAsc"));
+descBtn.addEventListener('click', () => sortProduct("priceDesc"));

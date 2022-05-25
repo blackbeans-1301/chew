@@ -1,357 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://img.favpng.com/14/10/23/logo-c-letter-png-favpng-TEHuUHveLi6T5cgGz9R7rwbNA.jpg"
+      type="image/x-icon"
+    />
+    <title>Trang quản lý</title>
+    <link rel="stylesheet" href="./assets/css/admin-page/style.css" />
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <link
+      rel="stylesheet"
+      href="assets/font/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.css"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="https://img.favpng.com/14/10/23/logo-c-letter-png-favpng-TEHuUHveLi6T5cgGz9R7rwbNA.jpg"
-		type="image/x-icon" />
-  <title>Trang quản lý</title>
-  <link rel="stylesheet" href="./assets/css/admin-page/style.css" />
-  <link rel="stylesheet" href="./assets/css/base.css" />
-  <link rel="stylesheet" href="assets/font/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.css" />
+    <!-- <link rel="stylesheet" href="./assets/css/main.css"> -->
+  </head>
 
-  <!-- <link rel="stylesheet" href="./assets/css/main.css"> -->
-</head>
+  <body>
+    <div class="modal-add">
+      <div class="modal__overlay"></div>
 
-<body>
-  <!-- <div class="modal-edit">
-    <div class="modal__overlay"></div>
-
-    <div class="modal__body js-modal__body">
-      <div class="edit-product">
-        <div class="edit-product__container">
-          <div class="edit-product__header">
-            <span class="header-text">Chỉnh sửa sản phẩm</span>
-          </div>
-
-          <div class="edit-product__product">
-            <div class="edit-product__product-img" style="
-                  background-image: url(https://img.chewy.com/is/image/catalog/46861_MAIN._AC_SS348_V1636150597_.jpg);
-                "></div>
-
-            <div class="edit-row">
-              <div class="edit-title">
-                <span>* Tên sản phẩm</span>
-              </div>
-
-              <div class="edit-input">
-                <input type="text" class="chewy-input" placeholder="Nhập vào" />
-              </div>
+      <div class="modal__body js-modal__body">
+        <div class="edit-product">
+          <div class="edit-product__container">
+            <div class="edit-product__header">
+              <span class="add-product__title">Thêm 1 sản phẩm mới</span>
             </div>
 
-            <div class="edit-row">
-              <div class="edit-title">
-                <span>* Mô tả</span>
-              </div>
-
-              <div class="edit-input">
-                <textarea name="input" id="input-description" cols="30" rows="10" style="
-                      resize: none;
-                      min-height: 209.767px;
-                      min-height: 100px;
-                      width: 100%;
-                    " placeholder="Mô tả"></textarea>
-              </div>
-            </div>
-
-            <div class="edit-row">
-              <div class="edit-title">
-                <span>* Giá</span>
-              </div>
-
-              <div class="edit-input">
-                <input type="text" class="chewy-input" placeholder="Nhập vào" />
-              </div>
-            </div>
-
-            <div class="edit-row">
-              <div class="edit-title">
-                <span>* Số lượng trong kho</span>
-              </div>
-
-              <div class="edit-input">
-                <input type="text" class="chewy-input" placeholder="Nhập vào" />
-              </div>
-            </div>
-          </div>
-
-          <div class="edit-product__btn">
-            <button class="btn cancel-action js-cancel-edit-product">
-              Hủy
-            </button>
-            <button class="btn update-product">Xác nhận</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-  <div class="modal-add">
-    <div class="modal__overlay"></div>
-
-    <div class="modal__body js-modal__body">
-      <div class="edit-product">
-        <div class="edit-product__container">
-          <div class="edit-product__header">
-            <span class="add-product__title">Thêm 1 sản phẩm mới</span>
-          </div>
-
-          <div class="edit-product__product">
-            <!-- <div class="edit-product__product-img"
+            <div class="edit-product__product">
+              <!-- <div class="edit-product__product-img"
                             style="background-image: url(https://img.chewy.com/is/image/catalog/46861_MAIN._AC_SS348_V1636150597_.jpg);">
                         </div> -->
 
-            <div class="edit-row">
-              <div class="edit-title">
-                <span>* Ảnh SP</span>
+              <div class="edit-row">
+                <div class="edit-title">
+                  <span>* Ảnh SP</span>
+                </div>
+
+                <div class="edit-input">
+                  <input
+                    type="text"
+                    class="chewy-input js-create-product-productImg"
+                    placeholder="Link ảnh"
+                  />
+                </div>
               </div>
 
-              <div class="edit-input" >
-                <input type="text" class="chewy-input js-create-product-productImg" placeholder="Link ảnh" />
-              </div>
-            </div>
+              <div class="edit-row">
+                <div class="edit-title">
+                  <span>* Dòng sản phẩm</span>
+                </div>
 
-            <div class="edit-row">
-              <div class="edit-title">
-                <span>* Dòng sản phẩm</span>
-              </div>
-
-              <div class="edit-input">
-                <input type="text" class="chewy-input js-create-product-productLine" placeholder="Dòng sản phẩm" />
-              </div>
-            </div>
-
-            <div class="edit-row">
-              <div class="edit-title">
-                <span>* Tên sản phẩm</span>
+                <div class="edit-input">
+                  <input
+                    type="text"
+                    class="chewy-input js-create-product-productLine"
+                    placeholder="Dòng sản phẩm"
+                  />
+                </div>
               </div>
 
-              <div class="edit-input">
-                <input type="text" class="chewy-input js-create-product-productName" placeholder="Nhập vào" />
-              </div>
-            </div>
+              <div class="edit-row">
+                <div class="edit-title">
+                  <span>* Tên sản phẩm</span>
+                </div>
 
-            <div class="edit-row">
-              <div class="edit-title">
-                <span>* Mã sản phẩm</span>
-              </div>
-
-              <div class="edit-input" >
-                <input type="text" class="chewy-input js-create-product-productCode" placeholder="Mã sản phẩm" />
-              </div>
-            </div>
-
-            <div class="edit-row">
-              <div class="edit-title">
-                <span>* Mô tả</span>
+                <div class="edit-input">
+                  <input
+                    type="text"
+                    class="chewy-input js-create-product-productName"
+                    placeholder="Nhập vào"
+                  />
+                </div>
               </div>
 
-              <div class="edit-input">
-                <textarea name="input" id="input-description" cols="30" rows="10" style="
+              <div class="edit-row">
+                <div class="edit-title">
+                  <span>* Mã sản phẩm</span>
+                </div>
+
+                <div class="edit-input">
+                  <input
+                    type="text"
+                    class="chewy-input js-create-product-productCode"
+                    placeholder="Mã sản phẩm"
+                  />
+                </div>
+              </div>
+
+              <div class="edit-row">
+                <div class="edit-title">
+                  <span>* Mô tả</span>
+                </div>
+
+                <div class="edit-input">
+                  <textarea
+                    name="input"
+                    id="input-description"
+                    cols="30"
+                    rows="10"
+                    style="
                       resize: none;
                       min-height: 209.767px;
                       min-height: 100px;
                       width: 100%;
-                    " placeholder="Mô tả"
+                    "
+                    placeholder="Mô tả"
                     class="js-create-product-description"
-                    >This is out affect!</textarea>
-              </div>
-            </div>
-
-            <div class="edit-row">
-              <div class="edit-title">
-                <span>* Giá nhập</span>
+                  >
+This is out affect!</textarea
+                  >
+                </div>
               </div>
 
-              <div class="edit-input">
-                <input type="text" class="chewy-input js-create-product-priceIn" placeholder="Nhập vào" />
-              </div>
-            </div>
-
-            <div class="edit-row">
-              <div class="edit-title">
-                <span>* Giá bán</span>
-              </div>
-
-              <div class="edit-input">
-                <input type="text" class="chewy-input js-create-product-priceOut" placeholder="Nhập vào" />
-              </div>
-            </div>
-
-            <div class="edit-row">
-              <div class="edit-title">
-                <span>* Kho hàng</span>
-              </div>
-
-              <div class="edit-input">
-                <input type="text" class="chewy-input js-create-product-quantity" placeholder="Nhập vào" />
-              </div>
-            </div>
-          </div>
-
-          <div class="add-product__btn">
-            <button class="btn cancel-action js-cancel-add-product">Hủy</button>
-            <button class="btn update-product js-confirm-add-action">Xác nhận</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="app">
-    <div class="header">
-      <div class="header-navbar">
-        <div class="header-navbar__title">
-          <!-- include shop logo and title -->
-          <div class="header__logo">
-            <a href="/" class="header__logo-link">
-              <svg class="header__logo-img" viewBox="0 0 106 32" focusable="false" tabindex="-1" aria-hidden="true"
-                height="46" width="155">
-                <path
-                  d="M54.237 15.497c-.653 1.377-.924 2.776-3.217 3.709-2.238.91-4.283-.42-4.961-1.675 0 0 7.41-3.424 9.594-4.742.659-.398 1.165-.856 1.5-1.372.268.681.592 1.486.95 2.356-1.447-.557-3.061.027-3.866 1.724m-7.99-6.587c3.06-1.448 4.765 1.526 4.765 1.526l-6.719 3.178s-1.106-3.257 1.954-4.704m57.306-2.554c-1.925-.648-3.732.431-4.314 2.24l-3.242 10.077-.081-.004c-1.03-4.352-2.437-10.31-2.437-10.31-.438-1.85-2.154-3.074-4.124-2.586a3.449 3.449 0 0 0-1.852 1.148c-.2-1.438-1.283-2.61-2.882-2.816-1.973-.254-3.524 1.141-3.764 3.004l-1.332 10.378-.08.008-2.758-7.643c-1.122-3.109-2.04-4.72-4.828-4.404-2.79.317-3.337 2.094-3.762 5.378l-1.044 8.075-.08.009-3.535-9.826c-.635-1.763-2.449-2.776-4.319-2.087a3.361 3.361 0 0 0-1.78 1.476c-1.396-3.65-6.807-7.16-13.451-3.524-3.462 1.895-5.073 4.507-5.597 7.132-.97-2.256-2.957-3.84-5.605-4.08-3.57-.324-5.576 1.779-5.576 1.779l-.072-.006.52-5.965c.166-1.915-1.089-3.608-3.135-3.793-2.047-.186-3.586 1.28-3.75 3.17l-1.238 14.209c-.615-.662-1.547-1.053-2.635-.776-2.193.536-2.754 3.191-5.084 3.68-2.644.555-4.317-1.548-4.827-4.077-.418-2.077-.06-5.137 2.878-5.587 2.58-.396 3.184 2.346 6.055 1.768 1.7-.343 2.52-1.707 2.123-3.45-.626-2.642-4.737-4.582-9.25-3.636C2.89 6.535-1.035 11.814.242 18.436c1.32 6.844 7.662 9.062 12.679 7.943 3.107-.693 4.978-2.133 6.046-3.612l-.068.773c-.166 1.915 1.089 3.608 3.135 3.793 2.047.186 3.586-1.28 3.75-3.17l.707-8.113c.192-2.269 1.697-3.102 3.008-2.983 1.31.118 2.625 1.375 2.45 3.478l-.706 8.113c-.167 1.916 1.089 3.608 3.135 3.794 2.046.185 3.585-1.28 3.75-3.17l.624-7.17c.14.412.294.803.461 1.17C42.27 26 48.53 26.429 53.41 24.12c2.837-1.342 4.507-2.97 5.497-4.466.443-.67.73-1.294.894-1.868.368.843.738 1.672 1.095 2.445 2.353 5.09 3.173 6.345 6.925 6.018 3.73-.522 4.093-2.08 5.091-10.777l.04-.004.04-.005c2.847 8.261 3.537 9.7 7.288 9.373 3.73-.522 4.26-1.93 5.46-7.423a172.47 172.47 0 0 0 1.306-6.764l.83 2.736c2.006 6.58 4.087 10.944 2.833 11.58-1.115.564-1.76-1.418-3.907-1.283-1.477.093-2.783 1.67-2.307 3.617.657 2.689 4.787 5.545 9.532 4.114 4.78-1.442 6.176-5.383 11.685-20.628.633-1.818-.233-3.78-2.158-4.429">
-                </path>
-              </svg>
-            </a>
-          </div>
-
-          <h2 class="header-navbar__text">Trang quản lý cửa hàng</h2>
-        </div>
-
-        <i class="navbar-bell fa-solid fa-bell"></i>
-      </div>
-    </div>
-    <!-- ------------ header: END ------------ -->
-
-    <!-- ------------ side bar: BEIGN ------------ -->
-    <div class="sidebar-container">
-      <div class="sidebarContainer">
-        <div id="sidebar" class="sidebar">
-          <ul class="sidebar-menu">
-            <li class="sidebar-menu-box">
-              <div class="sidebar-menu__item-title">
-                <i class="clipboard-icon fa-regular fa-clipboard"></i>
-                <span class="sidebar-menu__item-text">Quản lý đơn hàng</span>
-              </div>
-              <ul class="sidebar-submenu">
-                <li class="sidebar-submenu-item">Tất cả</li>
-                <li class="sidebar-submenu-item">Đơn hủy</li>
-                <li class="sidebar-submenu-item">Trả hàng - hoàn tiền</li>
-              </ul>
-            </li>
-
-            <li class="sidebar-menu-box">
-              <div class="sidebar-menu__item-title">
-                <i class="clipboard-icon fa-solid fa-bag-shopping"></i>
-                <span class="sidebar-menu__item-text">Quản lý sản phẩm</span>
-              </div>
-              <ul class="sidebar-submenu">
-                <li class="sidebar-submenu-item">Tất cả sản phẩm</li>
-                <li class="sidebar-submenu-item">Thêm sản phẩm</li>
-                <li class="sidebar-submenu-item">Xóa sản phẩm</li>
-                <li class="sidebar-submenu-item">Sửa sản phẩm</li>
-              </ul>
-            </li>
-
-            <li class="sidebar-menu-box">
-              <div class="sidebar-menu__item-title">
-                <i class="clipboard-icon fa-solid fa-tag"></i>
-                <span class="sidebar-menu__item-text">Kênh Marketing</span>
-              </div>
-              <ul class="sidebar-submenu">
-                <li class="sidebar-submenu-item">Kênh Marketing</li>
-                <li class="sidebar-submenu-item">Quảng cáo shopee</li>
-                <li class="sidebar-submenu-item">Mã giảm giá của tôi</li>
-              </ul>
-            </li>
-
-            <li class="sidebar-menu-box">
-              <div class="sidebar-menu__item-title">
-                <i class="clipboard-icon fa-solid fa-wallet"></i>
-                <span class="sidebar-menu__item-text">Tài chính</span>
-              </div>
-              <ul class="sidebar-submenu">
-                <li class="sidebar-submenu-item">Doanh thu</li>
-                <li class="sidebar-submenu-item">Số dư tài khoản shopee</li>
-                <li class="sidebar-submenu-item">Tài khoản ngân hàng</li>
-                <li class="sidebar-submenu-item">Thiết lập thanh toán</li>
-              </ul>
-            </li>
-
-            <li class="sidebar-menu-box">
-              <div class="sidebar-menu__item-title">
-                <i class="clipboard-icon customer-help-icon fa-solid fa-envelope-open-text"></i>
-                <span class="sidebar-menu__item-text">Chăm sóc khách hàng</span>
-              </div>
-              <ul class="sidebar-submenu">
-                <li class="sidebar-submenu-item">Trợ lý chat</li>
-                <li class="sidebar-submenu-item">Hỏi đáp</li>
-              </ul>
-            </li>
-
-            <li class="sidebar-menu-box">
-              <div class="sidebar-menu__item-title">
-                <i class="clipboard-icon fa-solid fa-gears"></i>
-                <span class="sidebar-menu__item-text">Thiết lập shop</span>
-              </div>
-              <ul class="sidebar-submenu">
-                <li class="sidebar-submenu-item">Địa chỉ</li>
-                <li class="sidebar-submenu-item">Thiết lập</li>
-                <li class="sidebar-submenu-item">Tài khoản</li>
-                <li class="sidebar-submenu-item">Đối tác</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- ------------ side bar: END ------------ -->
-
-    <div class="container">
-      <div class="page-container">
-        <div class="container-header">
-          <div class="container-header-wraper">
-            <div class="shopee-tabs__nav-wrap">
-              <div class="shopee-tabs__nav-tabs tab-active">
-                <span class="tabs-tab">Tất cả</span>
-              </div>
-
-              <div class="shopee-tabs__nav-tabs">
-                <span class="tabs-tab">Hết hàng</span>
-              </div>
-
-              <div class="shopee-tabs__nav-tabs">
-                <span class="tabs-tab">Đã ẩn</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-list">
-          <div class="product-list-wrapper">
-            <div class="product-list-header">
-              <div class="product-list-header__title-box" id="js-product-number">
-                <!-- <span class="product-list-header__title-text">1 Sản phẩm</span> -->
-              </div>
-
-              <div class="product-list-header__right">
-                <div class="bi-action">
-                  <button class="btn-link">Tối ưu sản phẩm</button>
+              <div class="edit-row">
+                <div class="edit-title">
+                  <span>* Giá nhập</span>
                 </div>
 
-                <button class="add-action js-add-action">
-                  <i class="plus-icon fa-solid fa-plus"></i>
-                  <span class="add-action__text">Thêm sản phẩm mới</span>
-                </button>
+                <div class="edit-input">
+                  <input
+                    type="text"
+                    class="chewy-input js-create-product-priceIn"
+                    placeholder="Nhập vào"
+                  />
+                </div>
+              </div>
 
-                <div class="view-mode"></div>
+              <div class="edit-row">
+                <div class="edit-title">
+                  <span>* Giá bán</span>
+                </div>
+
+                <div class="edit-input">
+                  <input
+                    type="text"
+                    class="chewy-input js-create-product-priceOut"
+                    placeholder="Nhập vào"
+                  />
+                </div>
+              </div>
+
+              <div class="edit-row">
+                <div class="edit-title">
+                  <span>* Kho hàng</span>
+                </div>
+
+                <div class="edit-input">
+                  <input
+                    type="text"
+                    class="chewy-input js-create-product-quantity"
+                    placeholder="Nhập vào"
+                  />
+                </div>
               </div>
             </div>
 
-            <div class="product-list-container">
-              <div class="grid__row" id="main-product-list">
-                <!-- <div class="grid__col-2-4">
+            <div class="add-product__btn">
+              <button class="btn cancel-action js-cancel-add-product">
+                Hủy
+              </button>
+              <button class="btn update-product js-confirm-add-action">
+                Xác nhận
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app">
+      <div class="header">
+        <div class="header-navbar">
+          <div class="header-navbar__title">
+            <!-- include shop logo and title -->
+            <div class="header__logo">
+              <a href="/" class="header__logo-link">
+                <svg
+                  class="header__logo-img"
+                  viewBox="0 0 106 32"
+                  focusable="false"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  height="46"
+                  width="155"
+                >
+                  <path
+                    d="M54.237 15.497c-.653 1.377-.924 2.776-3.217 3.709-2.238.91-4.283-.42-4.961-1.675 0 0 7.41-3.424 9.594-4.742.659-.398 1.165-.856 1.5-1.372.268.681.592 1.486.95 2.356-1.447-.557-3.061.027-3.866 1.724m-7.99-6.587c3.06-1.448 4.765 1.526 4.765 1.526l-6.719 3.178s-1.106-3.257 1.954-4.704m57.306-2.554c-1.925-.648-3.732.431-4.314 2.24l-3.242 10.077-.081-.004c-1.03-4.352-2.437-10.31-2.437-10.31-.438-1.85-2.154-3.074-4.124-2.586a3.449 3.449 0 0 0-1.852 1.148c-.2-1.438-1.283-2.61-2.882-2.816-1.973-.254-3.524 1.141-3.764 3.004l-1.332 10.378-.08.008-2.758-7.643c-1.122-3.109-2.04-4.72-4.828-4.404-2.79.317-3.337 2.094-3.762 5.378l-1.044 8.075-.08.009-3.535-9.826c-.635-1.763-2.449-2.776-4.319-2.087a3.361 3.361 0 0 0-1.78 1.476c-1.396-3.65-6.807-7.16-13.451-3.524-3.462 1.895-5.073 4.507-5.597 7.132-.97-2.256-2.957-3.84-5.605-4.08-3.57-.324-5.576 1.779-5.576 1.779l-.072-.006.52-5.965c.166-1.915-1.089-3.608-3.135-3.793-2.047-.186-3.586 1.28-3.75 3.17l-1.238 14.209c-.615-.662-1.547-1.053-2.635-.776-2.193.536-2.754 3.191-5.084 3.68-2.644.555-4.317-1.548-4.827-4.077-.418-2.077-.06-5.137 2.878-5.587 2.58-.396 3.184 2.346 6.055 1.768 1.7-.343 2.52-1.707 2.123-3.45-.626-2.642-4.737-4.582-9.25-3.636C2.89 6.535-1.035 11.814.242 18.436c1.32 6.844 7.662 9.062 12.679 7.943 3.107-.693 4.978-2.133 6.046-3.612l-.068.773c-.166 1.915 1.089 3.608 3.135 3.793 2.047.186 3.586-1.28 3.75-3.17l.707-8.113c.192-2.269 1.697-3.102 3.008-2.983 1.31.118 2.625 1.375 2.45 3.478l-.706 8.113c-.167 1.916 1.089 3.608 3.135 3.794 2.046.185 3.585-1.28 3.75-3.17l.624-7.17c.14.412.294.803.461 1.17C42.27 26 48.53 26.429 53.41 24.12c2.837-1.342 4.507-2.97 5.497-4.466.443-.67.73-1.294.894-1.868.368.843.738 1.672 1.095 2.445 2.353 5.09 3.173 6.345 6.925 6.018 3.73-.522 4.093-2.08 5.091-10.777l.04-.004.04-.005c2.847 8.261 3.537 9.7 7.288 9.373 3.73-.522 4.26-1.93 5.46-7.423a172.47 172.47 0 0 0 1.306-6.764l.83 2.736c2.006 6.58 4.087 10.944 2.833 11.58-1.115.564-1.76-1.418-3.907-1.283-1.477.093-2.783 1.67-2.307 3.617.657 2.689 4.787 5.545 9.532 4.114 4.78-1.442 6.176-5.383 11.685-20.628.633-1.818-.233-3.78-2.158-4.429"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+
+            <h2 class="header-navbar__text">Trang quản lý cửa hàng</h2>
+          </div>
+
+          <i class="navbar-bell fa-solid fa-bell"></i>
+        </div>
+      </div>
+      <!-- ------------ header: END ------------ -->
+
+      <!-- ------------ side bar: BEIGN ------------ -->
+      <div class="sidebar-container">
+        <div class="sidebarContainer">
+          <div id="sidebar" class="sidebar">
+            <ul class="sidebar-menu">
+              <li class="sidebar-menu-box">
+                <div class="sidebar-menu__item-title">
+                  <i class="clipboard-icon fa-regular fa-clipboard"></i>
+                  <span class="sidebar-menu__item-text">Quản lý đơn hàng</span>
+                </div>
+                <ul class="sidebar-submenu">
+                  <li class="sidebar-submenu-item" id="allOrder">Tất cả</li>
+                  <li class="sidebar-submenu-item">Đơn hủy</li>
+                  <li class="sidebar-submenu-item">Trả hàng - hoàn tiền</li>
+                </ul>
+              </li>
+
+              <li class="sidebar-menu-box">
+                <div class="sidebar-menu__item-title">
+                  <i class="clipboard-icon fa-solid fa-bag-shopping"></i>
+                  <span class="sidebar-menu__item-text">Quản lý sản phẩm</span>
+                </div>
+                <ul class="sidebar-submenu">
+                  <li class="sidebar-submenu-item">Tất cả sản phẩm</li>
+                  <li class="sidebar-submenu-item">Thêm sản phẩm</li>
+                  <li class="sidebar-submenu-item">Xóa sản phẩm</li>
+                </ul>
+              </li>
+          </div>
+        </div>
+      </div>
+      <!-- ------------ side bar: END ------------ -->
+
+      <div class="container">
+        <div class="page-container">
+          <div class="container-header">
+            <div class="container-header-wraper">
+              <div class="shopee-tabs__nav-wrap">
+                <div class="shopee-tabs__nav-tabs tab-active">
+                  <span class="tabs-tab">Tất cả</span>
+                </div>
+
+                <div class="shopee-tabs__nav-tabs">
+                  <span class="tabs-tab">Hết hàng</span>
+                </div>
+
+                <div class="shopee-tabs__nav-tabs">
+                  <span class="tabs-tab">Đã ẩn</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-list">
+            <div class="product-list-wrapper">
+              <div class="product-list-header">
+                <div
+                  class="product-list-header__title-box"
+                  id="js-product-number"
+                >
+                  <!-- <span class="product-list-header__title-text">1 Sản phẩm</span> -->
+                </div>
+
+                <div class="product-list-header__right">
+
+                  <button class="add-action js-add-action">
+                    <i class="plus-icon fa-solid fa-plus"></i>
+                    <span class="add-action__text">Thêm sản phẩm mới</span>
+                  </button>
+
+                  <div class="view-mode"></div>
+                </div>
+              </div>
+
+              <div class="product-list-container">
+                <div class="grid__row" id="main-product-list">
+                  <!-- <div class="grid__col-2-4">
                   <div class="home-product-item">
                     <div class="home-product-item__img" style="
                           background-image: url(https://img.chewy.com/is/image/catalog/46861_MAIN._AC_SS348_V1636150597_.jpg);
@@ -377,18 +306,17 @@
                     </div>
                   </div>
                 </div> -->
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- -----------modal------------- -->
+    <!-- -----------modal------------- -->
 
-  <!-- <script src="js/main.js"></script> -->
-  <script src="js/admin.js"></script>
-  <script src="js/productHandler.js"></script>
-</body>
-
+    <!-- <script src="js/main.js"></script> -->
+    <script src="js/admin.js"></script>
+    <script src="js/productHandler.js"></script>
+  </body>
 </html>

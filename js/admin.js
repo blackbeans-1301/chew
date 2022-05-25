@@ -1,7 +1,7 @@
 // console.log("clicked")
 const token = localStorage.getItem("token");
-const apiUrl = "http://trungdeptry.uetbc.xyz";
-// const apiUrl = "http://localhost:8888";
+// const apiUrl = "http://trungdeptry.uetbc.xyz";
+const apiUrl = "http://localhost:8888";
 
 
 // delete data fetch
@@ -170,11 +170,12 @@ const removeProduct = function (productCode) {
         });
 }
 
-// function removeProduct
-// const removePBtn = document.getElementsByClassName('js-remove-product');
-// for (let i = 0; i < removePBtn.length; i++) {
-//     const RmBtn = removePBtn[i];
 
-//     RmBtn.addEventListener('click', removeProduct(code));
-//     RmBtn.addEventListener('click', location.reload);
-// }
+const getOrder = async () => {
+    await getData(`${apiUrl}/admin/orders`, token).then(data => {
+        console.log(data);
+    }).catch(err => console.log(err))
+}
+
+const allOrder = document.getElementById("allOrder");
+allOrder.addEventListener('click', getOrder);
