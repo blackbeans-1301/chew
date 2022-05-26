@@ -1,3 +1,0 @@
-const getProductLine = function (categoryName) {
-    
-}

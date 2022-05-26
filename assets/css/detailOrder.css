@@ -53,6 +53,10 @@
 }
 
 #content {
-    width: 80%;
+    width: 60%;
     margin: 150px auto 0 auto;
+}
+
+.shop-total {
+    margin-top: 20px;
 }

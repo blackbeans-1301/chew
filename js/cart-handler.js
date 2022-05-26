@@ -80,8 +80,10 @@ function orderCart() {
 		//get product code
 		var productCode = title.substring(title.search(', ') + 1);
 		productCode = productCode.trim();
-		var quantityOrdered = Number(item.getElementsByClassName('input-quantity-box')[0].innerText);
-
+		// var quantityInputElement = cartRow.getElementsByClassName('input-quantity-field')[0].getElementsByClassName('input-quantity-box')[0];
+		// var quantityOrdered = Number(quantityInputElement.value);
+		var quantityOrdered = Number(item.getElementsByClassName('input-quantity-box')[0].value);
+		if (quantityOrdered == 0) quantityOrdered = 1;
 		var product = {
 			productCode,
 			quantityOrdered
@@ -93,7 +95,10 @@ function orderCart() {
 	postData(`${apiUrl}/order`, { products })
 		.then(data => {
 			alert(data.reason);
-		}).catch(err => { console.log(err) })
+		}).catch(err => { console.log(err) });
+	deleteData(`${apiUrl}/allCart`).then(() => {
+		window.location.replace('/')
+	});
 }
 
 // const orderBtn = document.getElementsByClassName('js-order-btn')[0];
@@ -298,9 +303,9 @@ function updateCartTotal() {
 
 		var bodyCart = cartRow.getElementsByClassName('header__cart-item-info')[0].getElementsByClassName('header__cart-item-body')[0];
 		var quantityInputElement = cartRow.getElementsByClassName('input-quantity-field')[0].getElementsByClassName('input-quantity-box')[0];
-
-		var price = parseFloat(cartPriceElement.innerText);
 		var quantity = quantityInputElement.value;
+		var price = parseFloat(cartPriceElement.innerText);
+
 
 		cartTotal += price * quantity;
 	}

@@ -82,7 +82,7 @@ confirmAddProductBtn.addEventListener('click', function () {
             document.getElementsByClassName('js-create-product-quantity')[0].value = '';
             document.location.reload(true);
         }
-        // location.assign.reload(true);
+            // location.assign.reload(true);
         )
         .catch(err => { console.log("then error: " + err); });
 });

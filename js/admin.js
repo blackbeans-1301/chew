@@ -169,7 +169,8 @@ const getOrder = async () => {
         results.map(result => {
             let status = ""
             if (result.status == 1) status = "Dang chuan bi";
-            else if (result.status == 2) status = "Da hoan tat";
+            else if (result.status == 2) status = "Dang Ship";
+            else if (result.status == 3) status = "Da hoan thanh"
             else status = "Da huy"
             let row = `<tr class="order_detail">
         <td class="describe_product">

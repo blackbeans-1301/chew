@@ -68,29 +68,24 @@
               <div class="form-group">
                 <label class="title-info"
                   >Họ tên:
-                  <span class="required"></span>
+                  <span class="required" id="fullName"></span>
                 </label>
               </div>
               <div class="form-group">
                 <label class="title-info"
                   >Địa chỉ:
-                  <span class="required"></span>
+                  <span class="required" id="address"></span>
                 </label>
               </div>
               <div class="form-group">
                 <label class="title-info"
                   >Số điện thoại:
-                  <span class="required"></span>
+                  <span class="required" id="phone"></span>
                 </label>
               </div>
               <div class="form-group note-shipping">
                 Trạng thái:
-                <select
-                  class="form-control"
-                  id="3"
-                  style="height: 30px"
-                  name="stt"
-                >
+                <select class="form-control" style="height: 30px" id="stt">
                   <option value="1">Đang Chuẩn bị</option>
                   <option value="2">Đang giao hàng</option>
                   <option value="3">Đã hoàn tất</option>
@@ -101,7 +96,9 @@
           </div>
           <div class="section_header">
             <div class="container_section_header">
-              <h2 class="section_title">Thông tin các sản phẩm đặt hàng</h2>
+              <h1 class="section_title" style="margin-bottom: 20px">
+                Thông tin các sản phẩm đặt hàng
+              </h1>
             </div>
           </div>
 
@@ -110,55 +107,12 @@
               <thead>
                 <tr class="title-row">
                   <th>Sản phẩm</th>
-                  <th></th>
                   <th>Giá</th>
-                  <th>Size</th>
                   <th>Số lượng</th>
-                  <th>Trong kho</th>
-                  <th>Tổng tiền</th>
-                  <th></th>
+                  <th>Thành tiền</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr class="order_detail">
-                  <td>
-                    <a class="image" href=""
-                      ><img style="width: 88px" src="/img/23/main.jpg" alt=""
-                    /></a>
-                  </td>
-                  <td class="describe_product">
-                    <a href="/admin/editProduct/23"
-                      >Adidas Predator Edge .4 TF- Core Black</a
-                    >
-                  </td>
-                  <td class="price_product">
-                    <span>1,300,000đ</span>
-                  </td>
-                  <td>42</td>
-                  <td>1</td>
-                  <td>Không đủ hàng</td>
-                  <td class="price_total">
-                    <div class="cl--primary" style="color: green">
-                      1,300,000đ
-                    </div>
-                  </td>
-
-                  <td class="recycle">
-                    <a
-                      href="/admin/delorder?productID=23&amp;orderNumber=81989779&amp;size=42"
-                    >
-                      <button
-                        class="btn btn-secondary"
-                        type="button"
-                        id="deleteOrder"
-                        onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này khỏi đơn hàng?')"
-                      >
-                        <i class="ti-trash"></i><span>Xoá</span>
-                      </button>
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
+              <tbody id="bodyoftable"></tbody>
             </table>
           </div>
 
@@ -167,7 +121,7 @@
               <tbody>
                 <tr>
                   <td>Tổng cần thanh toán:</td>
-                  <td style="color: hotpink">1,300,000 đ</td>
+                  <td style="color: hotpink" id="total"></td>
                 </tr>
               </tbody>
             </table>
@@ -176,4 +130,5 @@
       </form>
     </div>
   </body>
+  <script src="./js/orderDetail.js"></script>
 </html>
