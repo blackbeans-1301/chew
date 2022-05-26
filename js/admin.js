@@ -1,7 +1,7 @@
 // console.log("clicked")
 const token = localStorage.getItem("token");
-// const apiUrl = "http://trungdeptry.uetbc.xyz";
-const apiUrl = "http://localhost:8888";
+const apiUrl = "http://trungdeptry.uetbc.xyz";
+// const apiUrl = "http://localhost:8888";
 
 
 // delete data fetch
@@ -67,7 +67,7 @@ async function postData(url = '', data = {}) {
 
 //  get all product
 const getAllProduct = function () {
-    getData(`${apiUrl}/allProduct`)
+    getData(`${apiUrl}/allProduct?search=&sort=`)
         .then(data => {
             // console.log(typeof data); // JSON data parsed by `data.json()` call
             const productList = document.getElementById("main-product-list");
@@ -156,26 +156,71 @@ const removeProduct = function (productCode) {
     console.log(data, token);
     deleteData(`${apiUrl}/admin/product`, token, data)
         .then(data => {
-            // localStorage.clear();
-            console.log(data); // JSON data parsed by `data.json()` call
-            // localStorage.setItem("token", data.reason.token);
-            // localStorage.setItem("userName", data.reason.userName);
-            // localStorage.setItem("role", data.reason.role);
-            // if (localStorage.getItem("role") == 2)
-            //     location.assign("admin-page.html")
-            // else {
-            //     location.assign("/");
-            // }
-
+            console.log(data); // JSON data parsed by `data.json()` 
         });
 }
 
 
 const getOrder = async () => {
     await getData(`${apiUrl}/admin/orders`, token).then(data => {
-        console.log(data);
+        const results = data.reason;
+        let innerHTML = "";
+        console.log(results)
+        results.map(result => {
+            let status = ""
+            if (result.status == 1) status = "Dang chuan bi";
+            else if (result.status == 2) status = "Da hoan tat";
+            else status = "Da huy"
+            let row = `<tr class="order_detail">
+        <td class="describe_product">
+            ${result.fullName}
+        </td>
+        <td class="price_product">
+            <span>${result.phone}</span>
+        </td>
+        <td>
+            ${result.address}
+        </td>
+        <td class="price_product">
+            <span>${result.orderDate}</span>
+        </td>
+        <td class="price_total">
+            <div class="cl--primary" style="color:#ffe11b">Không</div>
+        </td>
+        <td class="price_product">
+            <span>${status}</span>
+        </td>
+        
+        <td class="recycle">
+            <a href="/orderDetail.html?orderCode=${result.orderCode}">
+                <button class="btn btn-secondary" type="button">
+                    <i class="ti-pencil-alt" style="color:lime"></i><span style="color:lime"> Chi tiết</span>
+                </button>
+            </a>
+        </td>
+    </tr>`;
+            innerHTML += row;
+        });
+        const tbody = document.getElementById("tbody");
+        console.log(tbody)
+        tbody.innerHTML = innerHTML;
     }).catch(err => console.log(err))
 }
 
 const allOrder = document.getElementById("allOrder");
-allOrder.addEventListener('click', getOrder);
+allOrder.addEventListener('click', () => {
+    allProduct.classList.add("no_display");
+    tableOrder.classList.remove("no_display");
+    getOrder();
+});
+
+const tatcasp = document.getElementById("tatcasp");
+tatcasp.addEventListener('click', () => {
+    allProduct.classList.remove("no_display");
+    tableOrder.classList.add("no_display")
+})
+
+const allProduct = document.getElementsByClassName("all-product")[0];
+const tableOrder = document.getElementsByClassName("table_order")[0];
+
+

@@ -1,0 +1,58 @@
+#content .container_content .info-shipping {
+    font-size: 1.6rem;
+    display: flex;
+    margin-bottom: 45px;
+}
+
+.info-shipping .col {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info-shipping .col1 {
+    padding-right: 15px;
+}
+
+.info-shipping .col2 {
+    padding-left: 15px;
+}
+
+.info-shipping .form-group {
+    margin-bottom: 14px;
+    width: 50%;
+    flex-wrap: wrap;
+}
+
+.info-shipping .form-group .title-info {
+    line-height: calc(22 / 14);
+    margin-bottom: 8px;
+}
+
+.info-shipping .title-info .required {
+    color: #c40e0e;
+    font-size: 2.4rem;
+}
+
+.info-shipping .form-control {
+    background: none;
+    border-radius: 2px;
+    border: 1px solid #3b3b3b;
+    padding: 5px 15px;
+
+    
+    line-height: 28px;
+}
+
+.info-shipping .form-control:focus-visible {
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+.info-shipping .note-shipping .title-info {
+    line-height: 33px;
+}
+
+#content {
+    width: 80%;
+    margin: 150px auto 0 auto;
+}

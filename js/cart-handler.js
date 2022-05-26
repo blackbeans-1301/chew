@@ -1,58 +1,58 @@
 // const token = localStorage.getItem("token");
 
 async function getData(url) {
-    const response = await fetch(url, {
-        method: 'GET', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-            'Content-Type': 'application/json',
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `${token}`
-        },
-        redirect: 'follow', // manual, *follow, error
-        referrerPolicy: 'no-referrer' // body data type must match "Content-Type" header
-    });
-    return response.json();
+	const response = await fetch(url, {
+		method: 'GET', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json',
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+			'Authorization': `${token}`
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer' // body data type must match "Content-Type" header
+	});
+	return response.json();
 }
 
 async function postData(url = '', data = {}) {
-    // Default options are marked with *
-    const response = await fetch(url, {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `${token}`
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: 'follow', // manual, *follow, error
-        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
-    });
-    return response.json(); // parses JSON response into native JavaScript objects
+	// Default options are marked with *
+	const response = await fetch(url, {
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json',
+			'Authorization': `${token}`
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		body: JSON.stringify(data) // body data type must match "Content-Type" header
+	});
+	return response.json(); // parses JSON response into native JavaScript objects
 }
 
 async function deleteData(url = '', data = {}) {
-    // Default options are marked with *
-    const response = await fetch(url, {
-        method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `${token}`
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: 'follow', // manual, *follow, error
-        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
-    });
-    return response.json(); // parses JSON response into native JavaScript objects
+	// Default options are marked with *
+	const response = await fetch(url, {
+		method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, *cors, same-origin
+		cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+		credentials: 'same-origin', // include, *same-origin, omit
+		headers: {
+			'Content-Type': 'application/json',
+			'Authorization': `${token}`
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		redirect: 'follow', // manual, *follow, error
+		referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+		body: JSON.stringify(data) // body data type must match "Content-Type" header
+	});
+	return response.json(); // parses JSON response into native JavaScript objects
 }
 
 
@@ -70,7 +70,7 @@ function updateEventAddtoCart() {
 }
 
 // ------------------------------ order function ------------------------------
-function orderCart () {
+function orderCart() {
 	var items = document.getElementsByClassName('header__cart-item');
 	var products = [];
 
@@ -80,7 +80,7 @@ function orderCart () {
 		//get product code
 		var productCode = title.substring(title.search(', ') + 1);
 		productCode = productCode.trim();
-		var quantityOrdered = item.getElementsByClassName('input-quantity-box')[0].innerText;
+		var quantityOrdered = Number(item.getElementsByClassName('input-quantity-box')[0].innerText);
 
 		var product = {
 			productCode,
@@ -91,9 +91,9 @@ function orderCart () {
 	}
 
 	postData(`${apiUrl}/order`, { products })
-	.then(data => {
-		alert(data.reason);
-	}).catch(err => { console.log(err) })
+		.then(data => {
+			alert(data.reason);
+		}).catch(err => { console.log(err) })
 }
 
 // const orderBtn = document.getElementsByClassName('js-order-btn')[0];
@@ -102,7 +102,7 @@ function orderCart () {
 
 
 // get user cart infomation
-function getUserCart () {
+function getUserCart() {
 	getData(`${apiUrl}/cart`)
 		.then(function (data) {
 
@@ -111,7 +111,7 @@ function getUserCart () {
 			var parentElement = document.getElementsByClassName('header__cart-list-item')[0];
 
 			listProduct.forEach(function (product) {
-			parentElement.innerHTML += `<li class="header__cart-item">
+				parentElement.innerHTML += `<li class="header__cart-item">
     <img src="${product.image}" alt=""
       class="header__cart-img" />
     <div class="header__cart-item-info">
@@ -141,13 +141,13 @@ function getUserCart () {
 			updateCartTotal();
 			updateCartNotice();
 		})
-		.catch(function (err) {console.log("err when get user cart: " + err)});
+		.catch(function (err) { console.log("err when get user cart: " + err) });
 }
 
 // ----------------------------------------------------------------
 
 function addToCartClicked(event) {
-	var button = event.target;                               
+	var button = event.target;
 	var shopItem = button.parentElement.parentElement;
 
 	// get title of the product
@@ -165,7 +165,7 @@ function addToCartClicked(event) {
 	var quantity = shopItem.getElementsByClassName('home-product-item__quantity')[0].getElementsByClassName('js-quantity')[0].innerText;
 
 	var parentElement = document.getElementsByClassName('header__cart-list-item')[0];
-	
+
 
 	// loop item through all product in cart: check if this product has in the cart
 	if (!checkIfProductInCart(productCode)) {
@@ -248,13 +248,14 @@ function addRemoveListener() {
 			var buttonClicked = event.target;
 			var title = buttonClicked.parentElement.parentElement.getElementsByClassName('header__cart-item-name')[0].innerText;
 			var productCode = title.substring(title.search(', ') + 1);
+			console.log(productCode)
 			productCode = productCode.trim();
 			deleteData(`${apiUrl}/cart`, { productCode: productCode })
-			.then(function (data) {
-				console.log(data);
-			}).catch(function (err) {
-				console.log(err);
-			})
+				.then(function (data) {
+					console.log(data);
+				}).catch(function (err) {
+					console.log(err);
+				})
 
 			buttonClicked.parentElement.parentElement.parentElement.remove();
 			updateCartTotal();
@@ -263,34 +264,6 @@ function addRemoveListener() {
 	}
 }
 
-// for (let i = 0; i < removeCartItemBtns.length; i++) {
-// 	const rmBtn = removeCartItemBtns[i];
-// 	rmBtn.addEventListener('click', function (event) {
-// 		var buttonClicked = event.target;
-
-
-
-
-// 		buttonClicked.parentElement.parentElement.parentElement.remove();
-// 		updateCartTotal();
-// 		updateCartNotice();
-// 	})
-// }
-
-// updateCartTotal when change the quantity of the product
-
-// console.log(inputFields);
-// inputFields[0].onchange = function () {
-//     inputFields[0].value = quantityMustPost(inputFields[0].value);
-//     console.log(inputFields[0].value);
-//     updateCartTotal();
-// }
-
-// inputFields[1].onchange = function () {
-//     inputFields[1].value = quantityMustPost(inputFields[1].value);
-//     console.log(inputFields[1].value);
-//     updateCartTotal();
-// }
 function updateInputFields() {
 	var inputFields = document.getElementsByClassName('input-quantity-box');
 

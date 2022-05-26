@@ -446,3 +446,16 @@
     background-color: #1c49c2;
     color: white;
 }
+table, td, th {
+    border: 1px solid;
+  }
+table thead tr {
+    background-color: #328da8;
+}
+table {
+    border-collapse: collapse;
+    font-size: 16px !important;
+}
+.no_display {
+    display: none;
+}

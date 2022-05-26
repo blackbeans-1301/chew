@@ -43,7 +43,7 @@ const signUp = function () {
     const passwordRp = document.getElementById("this-passwordRp").value;
     const fullName = document.getElementById("this-fullName").value;
     const phone = document.getElementById("this-phone").value;
-
+    const address = document.getElementById("address").value;
 
     const checkRepeatPassword = function () {
         return password == passwordRp;
@@ -54,7 +54,8 @@ const signUp = function () {
             userName,
             password,
             fullName,
-            phone
+            phone,
+            address
         }
         postData(`${apiUrl}/signup`, userInfo)
             .then(data => {
@@ -93,8 +94,8 @@ const btnSignup = document.querySelector('.js-signup-btn');
 btnSignup.addEventListener('click', signUp);
 
 
-const getAllProduct = function () {
-    getData(`${apiUrl}/allProduct`)
+const getAllProduct = function (search = "", sort = "") {
+    getData(`${apiUrl}/allProduct?search=${search}&sort=${sort}`)
         .then(data => {
             // JSON data parsed by `data.json()` call
             const productList = document.getElementById("product-list");
@@ -146,17 +147,6 @@ const getAllProduct = function () {
         }).catch(err => console.log(err));
 }
 
-
-// function updateEventAddtoCart() {
-// 	const addToCartBtn = document.getElementsByClassName('js-add-to-card-btn');
-//     console.log(addToCartBtn);
-// 	for (var i = 0; i < addToCartBtn.length; i++) {
-// 		var button = addToCartBtn[i];
-//         console.log(i);
-// 		button.addEventListener('click', addToCartClicked());
-// 	}
-// }
-
 const getProductLine = function (categoryName) {
     return function () {
         getData(`${apiUrl}/listProduct/${categoryName}`)
@@ -179,32 +169,30 @@ const getProductLine = function (categoryName) {
                     const productCode = value.productCode;
 
                     var data = `<div class="grid__col-2-4">
-                    <div class="home-product-item">
-                        <div class="home-product-item__img"
-                            style="background-image: url(${imgUrl});">
-                        </div>
-                        <a href="productDetail.html?code=${productCode}">
+                <div class="home-product-item">
+                    <div class="home-product-item__img"
+                        style="background-image: url(${imgUrl});">
+                    </div>
+                    <a href="productDetail.html?code=${productCode}">
                     <h4 class="home-product-item__name" >
                     ${productName}, ${productCode}
                     </h4>
                     </a>
-                        
-                
-                        <div class="home-product-item__price">
-                            <span class="home-product-item__price-icon">$</span>
-                            <span class="home-product-item__price-number">${price}</span>
-                        </div>
-                
-                        <div class="home-product-item__quantity">
-                            <span id="quantity-title">Số lượng: </span>
-                            <span id="js-quantity-in-stock">${quantity}</span>
-                        </div>
-                        <div class="home-product-item__add-to-card">
-                            <button class="home-product-item__add btn js-add-to-card-btn">Add to cart</button>
-                        </div>
+                    <div class="home-product-item__price">
+                        <span class="home-product-item__price-icon">$</span>
+                        <span class="home-product-item__price-number">${price}</span>
                     </div>
-                
-                </div>`
+            
+                    <div class="home-product-item__quantity">
+                        <span id="quantity-title">Số lượng: </span>
+                        <span id="js-quantity-in-stock" class="js-quantity">${quantity}</span>
+                    </div>
+                    <div class="home-product-item__add-to-card">
+                        <button class="home-product-item__add btn js-add-to-card-btn">Add to cart</button>
+                    </div>
+                </div>
+            
+            </div>`
                     productContent += data + '<br>';
                 }
 
@@ -223,11 +211,6 @@ const getProductLine = function (categoryName) {
     }
 };
 
-
-
-
-
-
 const lineAllProduct = document.querySelector('.js-category__all-product');
 const lineDogPA = document.querySelector('.js-category__dog-pa');
 const lineCatPA = document.querySelector('.js-category__cat-pa');
@@ -235,16 +218,7 @@ const lineDogKanel = document.querySelector('.js-category__dog-kanel');
 const lineCatKanel = document.querySelector('.js-category__cat-kanel');
 const lineCatMilk = document.querySelector('.js-category__cat-milk');
 
-// function removeArr() {
-//     lineAllProduct.classList.remove('category-item--active');
-//     lineDogPA.classList.remove('category-item--active');
-//     lineCatPA.classList.remove('category-item--active');
-//     lineDogKanel.classList.remove('category-item--active');
-//     lineCatKanel.classList.remove('category-item--active');
-//     lineCatMilk.classList.remove('category-item--active');
-// }
-
-getAllProduct();
+getAllProduct("", "");
 const btnSignin = document.querySelector('.js-signin-btn');
 btnSignin.addEventListener('click', signIn);
 lineDogPA.addEventListener('click', getProductLine('DOG_PA'));
@@ -253,7 +227,6 @@ lineDogKanel.addEventListener('click', getProductLine('DOG_KANEL'));
 lineCatKanel.addEventListener('click', getProductLine('CAT_KANEL'));
 lineCatMilk.addEventListener('click', getProductLine('CAT_MILK'));
 lineAllProduct.addEventListener('click', getAllProduct);
-
 
 const updateProductLine = function (code) {
 

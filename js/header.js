@@ -1,6 +1,6 @@
 
-// const apiUrl = "http://trungdeptry.uetbc.xyz";
-const apiUrl = "http://localhost:8888";
+const apiUrl = "http://trungdeptry.uetbc.xyz";
+// const apiUrl = "http://localhost:8888";
 
 const extraInfo = document.getElementById("extraInfo");
 const userName = localStorage.getItem("userName");

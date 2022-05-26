@@ -227,7 +227,7 @@ This is out affect!</textarea
                   <span class="sidebar-menu__item-text">Quản lý sản phẩm</span>
                 </div>
                 <ul class="sidebar-submenu">
-                  <li class="sidebar-submenu-item">Tất cả sản phẩm</li>
+                  <li class="sidebar-submenu-item" id="tatcasp">Tất cả sản phẩm</li>
                   <li class="sidebar-submenu-item">Thêm sản phẩm</li>
                   <li class="sidebar-submenu-item">Xóa sản phẩm</li>
                 </ul>
@@ -238,7 +238,7 @@ This is out affect!</textarea
       <!-- ------------ side bar: END ------------ -->
 
       <div class="container">
-        <div class="page-container">
+        <div class="page-container all-product">
           <div class="container-header">
             <div class="container-header-wraper">
               <div class="shopee-tabs__nav-wrap">
@@ -311,6 +311,23 @@ This is out affect!</textarea
             </div>
           </div>
         </div>
+        
+        <table class="page-container table_order no_display">
+            <thead>
+                <tr class="title-row">
+                    <th>Tên khách hàng</th>
+                    <th>Số ĐT</th>
+                    <th>Địa chỉ</th>
+                    <th>Ngày đặt hàng</th>
+                    <th>Ghi chú</th>
+                    <th>Trạng thái</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+        </table>
+        
       </div>
     </div>
     <!-- -----------modal------------- -->
